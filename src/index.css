@@ -1,0 +1,27 @@
+:root{
+  --dark-bg: #292524;
+  --card-bg: #212121;
+  --text-col: #f2f2f2;
+  --orange: #FFA000;
+}
+
+
+
+
+body {
+  margin: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  font-family: 'Oswald', 'Oswald2', 'RobotoCondensed', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--dark-bg);
+  position: relative;
+  color: var(--text-col);
+  font-size: 16px;
+}
+
+h2, p{
+  margin: 0;
+}
+

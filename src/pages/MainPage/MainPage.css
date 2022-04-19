@@ -1,0 +1,53 @@
+.MainPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.header{
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    min-height: 100vh;
+    background-position: top  center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 0 0 2rem 2rem;
+    overflow: hidden;
+}
+
+.header h1{
+    width: 5em;
+    margin-left: 1.5em;
+    position: relative;
+    font-weight: 800;
+    z-index: 2;
+    
+}
+
+.categories-container{
+    position: absolute;
+    top: 1rem;
+    z-index: 2;
+ }
+
+.catalog{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding-top: 10rem;
+    z-index: 2;
+}
+
+/* @media screen and (min-width: 650px) {
+    .catalog{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, min-max(320px, 1fr));
+    } */
+
+/* } */
+

@@ -1,0 +1,23 @@
+[
+    {
+        "id": "all",
+        "title": "Всі товари"
+    },
+    {
+        "id": "tea",
+        "title": "Чай"
+    },
+    {
+        "id": "honey",
+        "title": "Мед"
+    },
+    {
+        "id": "herbs",
+        "title": "Трави"
+    },
+    {
+        "id": "tinctures",
+        "title": "Настойки"
+    }
+
+]
