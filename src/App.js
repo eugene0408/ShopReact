@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import {
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+// Router
+import { Routes, Route, Link } from "react-router-dom";
+// Grid
+import { Col, Container, Row } from "react-grid-system";
+// Data
 import Goods from './data/goods.json';
 // Pages
 import MainPage from './pages/MainPage/MainPage';
@@ -19,85 +19,86 @@ import './App.css';
 
 
 function App() {
-
-
+  // Add properies to goods
+  const goodsList = Goods.map(obj => (
+    {...obj, 
+      inWishlist: false,
+      inCart: false,
+      amount: 1
+    }));
 
   // States
-  const [goods, setGoods] = useState(Goods);
+  const [goods, setGoods] = useState(goodsList);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [filteredGoods, setFilteredGoods] = useState([]);
   const [wishList, setWishList] = useState([]);
-  const [displayInWishlist, setDisplayInWishlist] = useState([]);
- 
+
   const goodsFilter = () => {
-    if(selectedCategory === 'all'){
-      setFilteredGoods(Goods)
+    if(selectedCategory == 'all'){
+      setFilteredGoods([...goods])
+      console.log('filtered')
     }else{
-      setFilteredGoods(Goods.filter(el => el.category === selectedCategory))
+      setFilteredGoods(goods.filter(el => el.category === selectedCategory))
     }  
   }
 
-
-  const addToDisplayInWishlist = () => {
-    wishList.forEach(element => {
-      setDisplayInWishlist(displayInWishlist.concat(Goods.filter(good => element == good.articul)))
-      console.log("added to display")
-    });
-  }
-
-
-  // Effect
-  useEffect(()=>{
-    goodsFilter();
-  },[]);
 
   useEffect(()=>{
     goodsFilter();
   },[selectedCategory]);
 
-  useEffect(()=> {
-    addToDisplayInWishlist();
-  }, [wishList]);
-
+  useEffect(
+    ()=>console.log("changed"), [goods]
+  )
 
   return (
     <div className="App">
 
 
-
-      <div className="topline">
-
-          <nav>
-            <div className="menu-button">
-              <Link to='/'>
-                <MenuIcon />
-              </Link>
-            </div>
-
-
-            <div className="topline-buttons">
-
-              <div className="topline-button">
-                <Link to='/wishlist'>
-                  <HeartIcon />
-                </Link>
                 
-              </div>
-    
-              <div className="topline-button">
-                <Link to="/cart">
-                  <CartIcon />
-                </Link>
-              </div>
+          <div className="topline">
+            <Container>
+              <Row>
+                <Col sm={12} 
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                  }} 
+                >
 
-            </div>
+                  <nav>
+                    <div className="menu-button">
+                      <Link to='/'>
+                        <MenuIcon />
+                      </Link>
+                    </div>
+
+
+                    <div className="topline-buttons">
+
+                      <div className="topline-button">
+                        <Link to='/wishlist'>
+                          <HeartIcon />
+                        </Link>
+                        
+                      </div>
+
+                      <div className="topline-button">
+                        <Link to="/cart">
+                          <CartIcon />
+                        </Link>
+                      </div>
+
+                    </div>
+
+                  </nav> 
+                </Col>
+              </Row>
+            </Container>
+          </div>
+
  
 
-
-        
-          </nav> 
-
-      </div>
 
 
       <Routes>
@@ -109,8 +110,8 @@ function App() {
               filteredGoods={filteredGoods}
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
-              wishList={wishList}
-              setWishList={setWishList}
+              goods={goods}
+              setGoods={setGoods}
             />} 
         />
 
@@ -118,12 +119,22 @@ function App() {
           path="/wishlist" 
           element=
             {<WishList
+              goods={goods}
+              setGoods={setGoods}
               wishList={wishList}
               setWishList={setWishList}
-              displayInWishlist={displayInWishlist}
              />} 
         />
-        <Route path="/cart" element={<Cart />} />
+
+        <Route 
+          path="/cart" 
+          element=
+            {<Cart 
+              goods={goods}
+              setGoods={setGoods}
+            />} 
+        />
+
       </Routes>
   
 

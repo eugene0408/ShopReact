@@ -52,5 +52,27 @@
         "image": "images/tea.png",
         "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
         "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+
+    {
+        "articul": "0006",
+        "category": "herbs",
+        "name": "Ромашка",
+        "size": "120",
+        "price": "50",
+        "image": "images/tea.png",
+        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+
+    {
+        "articul": "0007",
+        "category": "herbs",
+        "name": "Кульбаба",
+        "size": "100",
+        "price": "80",
+        "image": "images/tea.png",
+        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
     }
 ]

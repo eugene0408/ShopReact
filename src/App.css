@@ -1,14 +1,8 @@
 .topline{
     position: fixed;
     top: .5rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
     z-index: 3;
     width: 100%;
-    
-
 }
 
 .topline nav{
@@ -17,10 +11,10 @@
     align-items: center;
     justify-content: space-between;
     height: 2.5rem;
-    width: 92%;
+    width: 100%;
     background: var(--card-bg);
-    padding: 0 .5rem;
-    border-radius: 1rem;
+    padding: 0 .8rem;
+    border-radius: .5rem;
 }
 
 .topline-buttons{

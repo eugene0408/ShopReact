@@ -3,10 +3,8 @@
   --card-bg: #212121;
   --text-col: #f2f2f2;
   --orange: #FFA000;
+  --red: red;
 }
-
-
-
 
 body {
   margin: 0;
@@ -24,4 +22,6 @@ body {
 h2, p{
   margin: 0;
 }
+
+
 

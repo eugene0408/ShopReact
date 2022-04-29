@@ -1,6 +1,9 @@
 import './Card.css'
 import {ReactComponent as CartIcon} from '../../assets/cart.svg'
 import {ReactComponent as LikeIcon} from '../../assets/heart_icon.svg'
+import Hrn from '../Hrn'
+
+
 
 const Card = ({
   image, 
@@ -9,22 +12,19 @@ const Card = ({
   prise, 
   shortDescription,
   articul,
-  wishList,
-  setWishList
+  inWishlist,
+  inCart,
+  goods,
+  setGoods
 }) => {
-
-  const addToWishList = (e) => {
-
-    e.currentTarget.classList.toggle('liked')
-    
-    if(wishList.includes(e.currentTarget.value)){
-        setWishList(wishList.filter((el) => el !== e.currentTarget.value));
-     }else{
-      wishList.push(e.currentTarget.value)
-      setWishList(wishList)
+  // Add/remove items to cart/wishlist 
+    const cardButtonsHandler = (list) => (e)=> {
+      let goodsList = goods;
+      let goodIndex = goodsList.findIndex((good => good.articul == e.currentTarget.value));
+      goodsList[goodIndex][list] = !goodsList[goodIndex][list];
+      console.log(goodsList)
+      setGoods([...goodsList]);
     }
-
-  }
 
   return (
     <div className='card'>
@@ -33,9 +33,9 @@ const Card = ({
         style={{backgroundImage: `url(${image})`}}
       >
         <button 
-          className="like-button"
+          className={inWishlist ? "like-button liked" : "like-button"}
           value={articul}
-          onClick={e => addToWishList(e)}
+          onClick={cardButtonsHandler('inWishlist')}
         >
           <LikeIcon />
         </button>
@@ -82,23 +82,22 @@ const Card = ({
           >
 
             {prise}
-            <span
-              style={{
-                fontSize: "26px",
-                fontWeight: "300"
-              }}
-            >
-              ₴
-            </span> 
+
+            <Hrn styles={{
+              fontSize: '26px',
+              fontWeight: '300'
+            }}/>
 
           </p>
 
           <button 
             className='card-content__button'
             value={articul}
+            onClick={cardButtonsHandler('inCart')}
           >
-            <CartIcon />
-            купити
+            <CartIcon className={inCart ? "icon-active":""} />
+
+            {inCart ? "у кошику":"у кошик"}
           </button>
 
         </div>
