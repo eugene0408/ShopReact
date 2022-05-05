@@ -1,21 +1,74 @@
+import styled from "styled-components"
 // Grid
 import { Col, Container, Row } from "react-grid-system";
 // Images
 import background from '../../assets/forest.jpg';
+import {ReactComponent as HeartIcon} from '../../assets/heart_icon.svg';
 // Components
-import DarkCover from '../../components/DarkCover';
 import Card from '../../components/Card/Card';
-import FilterButton from '../../components/FilterButton/FilterButton';
-import Categories from '../../data/categories.json'
-// Styles
-import './MainPage.css';
 
 
+
+// Styled Components: 
+const DarkCover = styled.div`
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  z-index: 1;
+`
+const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+`
+const Header = styled.header`
+  background-image: url(${props => props.background});
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  border-radius: 50%;
+  margin-top: 8rem;
+  height: 280px;
+  width: 280px;
+`
+const HeaderTitle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  left: 50%;
+  z-index: 2;
+  height: 100%;
+  width: 130%;
+  transform: translateX(-50%);
+
+`
+const TitleNumber = styled.h2`
+  width: 50%;
+  font-size: 65px;
+  font-weight: 800;
+  padding-right: 1rem;
+`
+
+const TitleText = styled.p`
+  font-size: 21px;
+  width: 50%;
+  border-left: 1px solid white;
+  padding-left: 1rem;
+`
+
+const CatalogWrapper = styled.div`
+  width: 100%;
+  position: relative;
+  padding-top: 10rem;
+  z-index: 2;
+`
 
 const MainPage = ({
   filteredGoods,
-  selectedCategory,
-  setSelectedCategory,
   goods,
   setGoods
 }) => {
@@ -23,54 +76,28 @@ const MainPage = ({
   return (
     <div className='MainPage'>
 
-    <header 
-      className='header'
-      style={{ backgroundImage: `url(${background})` }}
-    >
-      <DarkCover/>
+      
+
       <Container>
-        <Row>
-          <Col>
-            <h1>100% натуральні продукти на основі трав</h1>
-          </Col>
-        </Row>
+        <Wrapper>
+
+          <Header background={background}>
+            <DarkCover/>
+            <HeaderTitle>
+              <TitleNumber>100%</TitleNumber>
+              <TitleText>натуральні продукти на основі трав</TitleText>
+            </HeaderTitle>
+          </Header>
+
+        </Wrapper>
       </Container>
-    </header>
 
 
 
-      
-      <div className="catalog">
-
-
-
-        {/* Categories */}
-
-
-        <div className='categories-container'>
-          <Container>
-            <Row>
-              <Col debug>
-                { Categories.map((category)=>(
-      
-                  <FilterButton 
-                    title={category.title}
-                    category={category.id}
-                    selectedCategory={selectedCategory}
-                    setSelectedCategory={setSelectedCategory}
-                    key={category.id}
-                  />
-
-                ))}
-              </Col>
-            </Row>
-          </Container>
-
-        </div>
-
-
-
-        {/* Goods list */}
+      {/* 
+      ----------  Goods list ----------------
+      */}
+      <CatalogWrapper>
         <Container>
           <Row>
 
@@ -106,13 +133,11 @@ const MainPage = ({
 
           </Row>
         </Container>
-
-
+      </CatalogWrapper>
       
 
-      </div>
-        
-       
+
+
     </div>
   )
 }

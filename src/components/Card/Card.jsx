@@ -1,9 +1,106 @@
-import './Card.css'
+import styled from 'styled-components';
 import {ReactComponent as CartIcon} from '../../assets/cart.svg'
 import {ReactComponent as LikeIcon} from '../../assets/heart_icon.svg'
-import Hrn from '../Hrn'
+import Hrn from './Hrn'
 
+// Styled Components
+const CardContainer = styled.div`
+  display: inline-block;
+  width: 360px;
+  max-width: 96vw;
+  background: var(--card-bg);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  z-index: 3;
+  @media (min-width: 650px){
+    margin: 1.5rem 1rem;
+  }
+`
 
+const CardImage = styled.div`
+  background-image: url(${props => props.image});
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  height: 12rem;
+`
+
+const LikeButton = styled.button`
+  position: absolute;
+  top: .5rem;
+  right: .5em;
+  background: transparent;
+  height: 2.5rem;
+  width: 2.5rem;
+  border: none;
+  cursor: pointer;
+
+  & svg path {
+    fill: rgba(255, 255, 255, 0.5);
+  }
+
+  & .active path {
+    fill: var(--orange);
+  }
+`
+const ContentWrapper = styled.div`
+  padding: 0.5rem 1rem;
+`
+
+const ContentItem = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const CardName = styled.h2`
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+`
+
+const CardSize = styled.p`
+  font-size: 24px;
+  & span {
+    font-size: 16px;
+  }
+`
+
+const CardDescription = styled.p`
+  font-weight: 200;
+`
+
+const CardPrice = styled.p`
+  font-weight: 700;
+  font-size: 32px;
+`
+
+const ActionButton = styled.button`
+  font-family: 'Oswald', 'Oswald2', serif;
+  background: transparent;
+  color: white;
+  border-radius: 1rem;
+  border: 1px solid white;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: .4rem 1.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  line-height: 28px;
+  & svg {
+    height: 28px;
+    margin-right: .5rem;
+    z-index: 3;
+  }
+  & svg path {
+    fill: white;
+  }
+  & .active path {
+    fill: var(--orange);
+  }
+`
 
 const Card = ({
   image, 
@@ -17,99 +114,62 @@ const Card = ({
   goods,
   setGoods
 }) => {
+
   // Add/remove items to cart/wishlist 
-    const cardButtonsHandler = (list) => (e)=> {
+    const addToList = (list) => (e)=> {
       let goodsList = goods;
       let goodIndex = goodsList.findIndex((good => good.articul == e.currentTarget.value));
       goodsList[goodIndex][list] = !goodsList[goodIndex][list];
-      console.log(goodsList)
       setGoods([...goodsList]);
-    }
+    };
 
   return (
-    <div className='card'>
+    <CardContainer>
 
-      <div className="card-image"
-        style={{backgroundImage: `url(${image})`}}
-      >
-        <button 
-          className={inWishlist ? "like-button liked" : "like-button"}
+      <CardImage image={image}>
+        <LikeButton
           value={articul}
-          onClick={cardButtonsHandler('inWishlist')}
+          onClick={addToList('inWishlist')}
         >
-          <LikeIcon />
-        </button>
+          <LikeIcon className={inWishlist ? "active" : ""} />
+        </LikeButton>
+      </CardImage>
 
-      </div>
 
+      <ContentWrapper>
 
-      <div className="card-content">
-
-        <div className="card-content__name">
-          <h2 
-            style={{
-              fontWeight: '700',
-              fontSize: '24px',
-              textTransform: 'uppercase'
-            }}
-          >
+        <ContentItem>
+          <CardName>
             {name}
-          </h2>
-          <p>
+          </CardName>
+          <CardSize>
             {size}
             <span>г.</span>
-          </p>
-        </div>
+          </CardSize>
+        </ContentItem>
 
-        <div className="card-content__short-descr">
-          <p 
-            style={{
-              fontWeight: '200'
-            }}
-          >
-            {shortDescription}
-          </p>
-        </div>
+        <CardDescription>
+          {shortDescription}
+        </CardDescription>
 
-
-        <div className="card-content__prise">
-
-          <p 
-            style={{
-              fontWeight: "700",
-              fontSize: "32px"
-            }}
-          >
-
+        <ContentItem>
+          <CardPrice>
             {prise}
+            <Hrn fz={26} fw={300} />
+          </CardPrice>
 
-            <Hrn styles={{
-              fontSize: '26px',
-              fontWeight: '300'
-            }}/>
-
-          </p>
-
-          <button 
-            className='card-content__button'
+          <ActionButton
             value={articul}
-            onClick={cardButtonsHandler('inCart')}
+            onClick={addToList('inCart')}
           >
-            <CartIcon className={inCart ? "icon-active":""} />
-
+            <CartIcon className={inCart ? "active" : ""} />
             {inCart ? "у кошику":"у кошик"}
-          </button>
+          </ActionButton>
+        </ContentItem>
 
-        </div>
+      </ContentWrapper>
 
-     
-
-      </div>
-
-
-
-
-    </div>
+    </CardContainer>
   )
 }
 

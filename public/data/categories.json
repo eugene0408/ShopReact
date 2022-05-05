@@ -1,0 +1,19 @@
+[
+    {
+        "value": "all",
+        "label": "Всі товари"
+    },
+    {
+        "value": "tea",
+        "label": "Чай"
+    },
+    {
+        "value": "honey",
+        "label": "Мед"
+    },
+    {
+        "value": "herbs",
+        "label": "Трави"
+    }
+
+]

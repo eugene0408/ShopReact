@@ -1,15 +1,30 @@
 import React, {useState} from 'react';
 import { Col, Row, Container } from 'react-grid-system';
+import styled  from 'styled-components'
 // Components
-import GoodInCart from '../../components/GoodInCart/GoodInCart';
+import CardInBusket from '../../components/Card/CardInBusket';
 import IsEmpty from '../../components/IsEmpty';
-import Hrn from '../../components/Hrn';
+import Hrn from '../../components/Card/Hrn';
+
+// Styles
+const CartHeader = styled.h2`
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+`
+const TotalValue = styled.p`
+  font-size: 28px;
+  font-weight: 600;
+`
+
+
 
 const Cart = ({
   goods,
-  setGoods
+  setGoods,
+  goodsInCart
 }) => {
-  let goodsInCart = goods.filter(good => good.inCart === true);
+
   let total = 0
   const calculateTotal = () => {
     goodsInCart.forEach(el => {
@@ -17,7 +32,6 @@ const Cart = ({
     })
   }
   calculateTotal()
-
 
   return (
     <div className='Cart'>
@@ -29,13 +43,9 @@ const Cart = ({
           <Container>
             <Row>
               <Col>
-                <h2 style={{
-                  marginTop: '4rem',
-                  marginBottom: '1rem',
-                  textTransform: 'uppercase'
-                }}>
+                <CartHeader>
                   Товари у кошику:
-                </h2>
+                </CartHeader>
               </Col>
             </Row>
           </Container>
@@ -48,7 +58,7 @@ const Cart = ({
                   key={good.articul}
                 >
 
-                  <GoodInCart 
+                  <CardInBusket 
                     articul={good.articul}
                     name={good.name}
                     image={good.image}
@@ -74,18 +84,12 @@ const Cart = ({
                 display: 'flex',
                 justifyContent: 'end'
               }}>
-                <div className='total'>
+                <div>
                   <h2>Всього:</h2>
-                  <p style={{
-                    fontSize: '28px',
-                    fontWeight: '600'
-                  }}>
+                  <TotalValue>
                     {total}
-                    <Hrn styles={{
-                        fontSize: '18px',
-                        fontWeight: '300'
-                    }}/>
-                  </p>
+                    <Hrn fz={18} fw={300} />
+                  </TotalValue>
                 </div>
               </Col>
             </Row>

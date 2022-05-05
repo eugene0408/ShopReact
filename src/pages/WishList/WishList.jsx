@@ -4,12 +4,13 @@ import { Col, Container, Row } from "react-grid-system";
 import Card from '../../components/Card/Card';
 import IsEmpty from "../../components/IsEmpty";
 
+
+
 const WishList = ({
   goods,
-  setGoods
+  setGoods,
+  wishList
 }) => {
-
-  const wishList = goods.filter(good => good.inWishlist === true);
 
   return (
     <div style={{marginTop: "3rem", width: "100%"}}>

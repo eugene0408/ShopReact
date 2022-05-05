@@ -1,103 +1,187 @@
 import { useState, useEffect } from "react";
+import styled from 'styled-components';
 // Router
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useLocation } from "react-router-dom";
 // Grid
 import { Col, Container, Row } from "react-grid-system";
-// Data
-import Goods from './data/goods.json';
 // Pages
 import MainPage from './pages/MainPage/MainPage';
 import WishList from "./pages/WishList/WishList";
 import Cart from "./pages/Cart/Cart";
+// Components
+import { Categories } from "./components/Categories";
+import { CartButton, BackButton, Indicator } from "./components/Styled/Buttons";
+import { 
+  ToplineWrapper, 
+  ToplineContainer, 
+  ToplineNav, 
+  ToplineButton,
+  TopWrapper,
+  TopContainer,
+  WishLink
+ } from "./components/Styled/TopLine";
+
 // Icons
 import {ReactComponent as MenuIcon} from './assets/menu.svg';
 import {ReactComponent as CartIcon} from './assets/cart.svg';
 import {ReactComponent as HeartIcon} from './assets/heart_icon.svg';
+import {ReactComponent as BackIcon} from './assets/left_arrow.svg';
 // Styles
 import './fonts/fonts.css';
 import './App.css';
 
 
-function App() {
-  // Add properies to goods
-  const goodsList = Goods.map(obj => (
-    {...obj, 
-      inWishlist: false,
-      inCart: false,
-      amount: 1
-    }));
+const App =({
+  goodsList, 
+  categories
+}) => {
+
+  // Add attributes to goods list from local storage or defaults
+  const goodsListAttr = () => {
+    // Default values
+    let list = goodsList.map(obj => (
+      {...obj, 
+        inWishlist: false,
+        inCart: false,
+        amount: 1
+      }));
+
+    if(localStorage.getItem('local') === null){
+      // Return default if nothing been saved
+      return list  
+    }else{
+      // Get saved values from local storage
+      let localData = JSON.parse(localStorage.getItem('local'));
+      // Replace default values
+      localData.forEach(localEl => {
+        let index = list.findIndex(listEl => localEl.articul === listEl.articul);
+        list[index] = localEl
+      });
+
+      return list
+    }
+  };
 
   // States
-  const [goods, setGoods] = useState(goodsList);
+  const [goods, setGoods] = useState(goodsListAttr);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [filteredGoods, setFilteredGoods] = useState([]);
-  const [wishList, setWishList] = useState([]);
 
+
+  const goodsInCart = goods.filter(good => good.inCart === true);
+  const wishList = goods.filter(good => good.inWishlist === true);
+
+  // Current page
+  const currentLocation = useLocation().pathname
+
+
+  // Filter goods by selected category
   const goodsFilter = () => {
     if(selectedCategory == 'all'){
       setFilteredGoods([...goods])
-      console.log('filtered')
     }else{
       setFilteredGoods(goods.filter(el => el.category === selectedCategory))
     }  
   }
 
+  const saveToLocal = () => {
+    const dataToSave = [...new Set([...goodsInCart, ...wishList])]
+    localStorage.setItem('local', JSON.stringify(dataToSave));
+  }
 
+  // Effect
   useEffect(()=>{
     goodsFilter();
   },[selectedCategory]);
 
-  useEffect(
-    ()=>console.log("changed"), [goods]
-  )
-
-  return (
-    <div className="App">
+  useEffect(() => {
+    saveToLocal();
+  }, [goods])
 
 
-                
-          <div className="topline">
-            <Container>
-              <Row>
-                <Col sm={12} 
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                  }} 
-                >
 
-                  <nav>
-                    <div className="menu-button">
-                      <Link to='/'>
-                        <MenuIcon />
-                      </Link>
-                    </div>
+  const cartHasItems = () => {
+    if(goodsInCart.length >= 1) return  goodsInCart.length; 
+    return false;
+  }
+  cartHasItems();
 
 
-                    <div className="topline-buttons">
-
-                      <div className="topline-button">
-                        <Link to='/wishlist'>
-                          <HeartIcon />
-                        </Link>
-                        
-                      </div>
-
-                      <div className="topline-button">
-                        <Link to="/cart">
-                          <CartIcon />
-                        </Link>
-                      </div>
-
-                    </div>
-
-                  </nav> 
-                </Col>
-              </Row>
-            </Container>
-          </div>
 
  
+  return (
+    <div className="App">
+          {/*------- Topline Menu --------*/}
+          <ToplineWrapper>
+            <ToplineContainer>
+
+              <ToplineNav>
+                <ToplineButton>
+                  <Link to='/'>
+                    <MenuIcon />
+                  </Link>
+                </ToplineButton>
+              </ToplineNav>  
+
+            </ToplineContainer>
+          </ToplineWrapper>
+
+
+
+          {/* ------ Top Navigation displaing only on Main Page ----- */}
+          {currentLocation === '/' &&       
+            <TopWrapper>
+              <TopContainer>
+
+                {/*----- Category Select ---------*/}  
+                <Categories 
+                  options={categories}
+                  onChange={e => setSelectedCategory(e.value)}
+                  defaultValue={categories[0]}
+                  value={categories[categories.findIndex(el => el.value == selectedCategory)]}
+                />
+
+                {/*------- Wishlist Link ---------*/}
+                <Link to={'/wishlist'}>
+                  <WishLink>
+                    <HeartIcon />
+                    <span>Обрані</span>
+                  </WishLink>
+                </Link>
+
+              </TopContainer>
+            </TopWrapper>
+          }
+
+
+
+          {/*--------- Bottom Navigation ----------*/}
+          {(cartHasItems() && currentLocation !== '/cart')  &&
+            <Link to="/cart">
+              <CartButton>
+                <CartIcon/>
+                  <Indicator>
+                    {cartHasItems()}
+                  </Indicator>
+              </CartButton>         
+            </Link>
+          }
+
+          {currentLocation === '/cart' &&
+            <Link to="/">
+              <CartButton>
+                <BackIcon/>
+              </CartButton>
+            </Link>
+          }
+
+          {(currentLocation !== '/' && currentLocation !== '/cart') &&
+            <Link to="/">
+              <BackButton>
+                <BackIcon/>
+              </BackButton>
+            </Link>
+          }
 
 
 
@@ -108,13 +192,11 @@ function App() {
           element=
             {<MainPage 
               filteredGoods={filteredGoods}
-              selectedCategory={selectedCategory}
-              setSelectedCategory={setSelectedCategory}
               goods={goods}
               setGoods={setGoods}
             />} 
         />
-
+      
         <Route 
           path="/wishlist" 
           element=
@@ -122,8 +204,7 @@ function App() {
               goods={goods}
               setGoods={setGoods}
               wishList={wishList}
-              setWishList={setWishList}
-             />} 
+            />} 
         />
 
         <Route 
@@ -132,15 +213,11 @@ function App() {
             {<Cart 
               goods={goods}
               setGoods={setGoods}
+              goodsInCart={goodsInCart}
             />} 
         />
 
       </Routes>
-  
-
-
-    
-
 
     </div>
   );
