@@ -1,0 +1,78 @@
+[
+    {
+        "articul": "0001",
+        "category": "tea",
+        "name": "Іван Чай",
+        "size": "200",
+        "price": "98",
+        "image": "images/tea.png",
+        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+
+    {
+        "articul": "0002",
+        "category": "honey",
+        "name": "Мед з малиною",
+        "size": "300",
+        "price": "150",
+        "image": "images/honey.png",
+        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+
+    {
+        "articul": "0003",
+        "category": "honey",
+        "name": "Мед з мелісою",
+        "size": "400",
+        "price": "180",
+        "image": "images/honey.png",
+        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+
+    {
+        "articul": "0004",
+        "category": "tea",
+        "name": "Василь Чай",
+        "size": "250",
+        "price": "115",
+        "image": "images/tea.png",
+        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    }, 
+
+    {
+        "articul": "0005",
+        "category": "herbs",
+        "name": "Меліса",
+        "size": "100",
+        "price": "250",
+        "image": "images/tea.png",
+        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+
+    {
+        "articul": "0006",
+        "category": "herbs",
+        "name": "Ромашка",
+        "size": "120",
+        "price": "50",
+        "image": "images/tea.png",
+        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+
+    {
+        "articul": "0007",
+        "category": "herbs",
+        "name": "Кульбаба",
+        "size": "100",
+        "price": "80",
+        "image": "images/tea.png",
+        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    }
+]

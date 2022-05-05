@@ -1,0 +1,36 @@
+{
+  "files": {
+    "main.css": "/eugene0408/ShopReact/static/css/main.e706bb11.css",
+    "main.js": "/eugene0408/ShopReact/static/js/main.dfdc63c5.js",
+    "static/media/forest.jpg": "/eugene0408/ShopReact/static/media/forest.2dbd1790efe9649bc89a.jpg",
+    "static/media/RobotoCondensed-Bold.woff": "/eugene0408/ShopReact/static/media/RobotoCondensed-Bold.14a7047141f97b966d40.woff",
+    "static/media/RobotoCondensed-Regular.woff": "/eugene0408/ShopReact/static/media/RobotoCondensed-Regular.25787041ddfe8df69d5d.woff",
+    "static/media/RobotoCondensed-Light.woff": "/eugene0408/ShopReact/static/media/RobotoCondensed-Light.23f975f0e40a20fbb55a.woff",
+    "static/media/oswald-600.woff": "/eugene0408/ShopReact/static/media/oswald-600.5d5ef0bdc41fa99ee8f1.woff",
+    "static/media/oswald-500.woff": "/eugene0408/ShopReact/static/media/oswald-500.9e4fb5fae08fba2caf33.woff",
+    "static/media/oswald-700.woff": "/eugene0408/ShopReact/static/media/oswald-700.6b0e6bcf0bff683f80b0.woff",
+    "static/media/oswald-300.woff": "/eugene0408/ShopReact/static/media/oswald-300.e1402b0dd6bdafa462b4.woff",
+    "static/media/oswald-200.woff": "/eugene0408/ShopReact/static/media/oswald-200.f7ad48784d7d54c23354.woff",
+    "static/media/oswald-regular.woff": "/eugene0408/ShopReact/static/media/oswald-regular.f2f316c26625136e591d.woff",
+    "static/media/oswald-600.woff2": "/eugene0408/ShopReact/static/media/oswald-600.80cb2d3e25cf2bc98c1b.woff2",
+    "static/media/oswald-500.woff2": "/eugene0408/ShopReact/static/media/oswald-500.f76fb7f8a6e6e8c8d514.woff2",
+    "static/media/oswald-700.woff2": "/eugene0408/ShopReact/static/media/oswald-700.3de2d9b9f7af53a67d9d.woff2",
+    "static/media/oswald-300.woff2": "/eugene0408/ShopReact/static/media/oswald-300.d8ea37610a928d8fb2d8.woff2",
+    "static/media/oswald-200.woff2": "/eugene0408/ShopReact/static/media/oswald-200.f5287f93591c756f0136.woff2",
+    "static/media/oswald-regular.woff2": "/eugene0408/ShopReact/static/media/oswald-regular.d39244316f8612c44ee1.woff2",
+    "static/media/cart.svg": "/eugene0408/ShopReact/static/media/cart.d995428f162673cbecb785cdba67540c.svg",
+    "index.html": "/eugene0408/ShopReact/index.html",
+    "static/media/trash.svg": "/eugene0408/ShopReact/static/media/trash.8a056f7c8504d7427cfd4a0b96586909.svg",
+    "static/media/menu.svg": "/eugene0408/ShopReact/static/media/menu.f86f6d204e346bbaf537acf470843e1a.svg",
+    "static/media/plus.svg": "/eugene0408/ShopReact/static/media/plus.f2d6b9a460fd7feb77d89c9e55741617.svg",
+    "static/media/minus.svg": "/eugene0408/ShopReact/static/media/minus.dd524aafd836cef21d520c4d00cbf10d.svg",
+    "static/media/left_arrow.svg": "/eugene0408/ShopReact/static/media/left_arrow.ec975135bfaf5aac8b2c34a301d1fe95.svg",
+    "static/media/heart_icon.svg": "/eugene0408/ShopReact/static/media/heart_icon.2aa6c5d1314365d724a0e76122882658.svg",
+    "main.e706bb11.css.map": "/eugene0408/ShopReact/static/css/main.e706bb11.css.map",
+    "main.dfdc63c5.js.map": "/eugene0408/ShopReact/static/js/main.dfdc63c5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e706bb11.css",
+    "static/js/main.dfdc63c5.js"
+  ]
+}
