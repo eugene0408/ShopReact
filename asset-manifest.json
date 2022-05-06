@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/eugene0408/ShopReact/static/css/main.e706bb11.css",
-    "main.js": "/eugene0408/ShopReact/static/js/main.dfdc63c5.js",
+    "main.js": "/eugene0408/ShopReact/static/js/main.9b432380.js",
     "static/media/forest.jpg": "/eugene0408/ShopReact/static/media/forest.2dbd1790efe9649bc89a.jpg",
     "static/media/RobotoCondensed-Bold.woff": "/eugene0408/ShopReact/static/media/RobotoCondensed-Bold.14a7047141f97b966d40.woff",
     "static/media/RobotoCondensed-Regular.woff": "/eugene0408/ShopReact/static/media/RobotoCondensed-Regular.25787041ddfe8df69d5d.woff",
@@ -27,10 +27,10 @@
     "static/media/left_arrow.svg": "/eugene0408/ShopReact/static/media/left_arrow.ec975135bfaf5aac8b2c34a301d1fe95.svg",
     "static/media/heart_icon.svg": "/eugene0408/ShopReact/static/media/heart_icon.2aa6c5d1314365d724a0e76122882658.svg",
     "main.e706bb11.css.map": "/eugene0408/ShopReact/static/css/main.e706bb11.css.map",
-    "main.dfdc63c5.js.map": "/eugene0408/ShopReact/static/js/main.dfdc63c5.js.map"
+    "main.9b432380.js.map": "/eugene0408/ShopReact/static/js/main.9b432380.js.map"
   },
   "entrypoints": [
     "static/css/main.e706bb11.css",
-    "static/js/main.dfdc63c5.js"
+    "static/js/main.9b432380.js"
   ]
 }
