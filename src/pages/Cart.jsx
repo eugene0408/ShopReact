@@ -2,9 +2,10 @@ import React, {useState} from 'react';
 import { Col, Row, Container } from 'react-grid-system';
 import styled  from 'styled-components'
 // Components
-import CardInBusket from '../../components/Card/CardInBusket';
-import IsEmpty from '../../components/IsEmpty';
-import Hrn from '../../components/Card/Hrn';
+import CoodInCart from '../components/Card/GoodInCart';
+import IsEmpty from '../components/IsEmpty';
+import Hrn from '../components/Card/Hrn';
+import GoodInCart from '../components/Card/GoodInCart';
 
 // Styles
 const CartHeader = styled.h2`
@@ -16,8 +17,6 @@ const TotalValue = styled.p`
   font-size: 28px;
   font-weight: 600;
 `
-
-
 
 const Cart = ({
   goods,
@@ -58,7 +57,7 @@ const Cart = ({
                   key={good.articul}
                 >
 
-                  <CardInBusket 
+                  <GoodInCart 
                     articul={good.articul}
                     name={good.name}
                     image={good.image}

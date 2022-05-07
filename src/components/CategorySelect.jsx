@@ -2,14 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import Select from 'react-select'
 
-export const Categories = styled(Select).attrs({
+export const CategorySelect = styled(Select).attrs({
   styles: {
     control: (provided) => ({
       ...provided,
       width: '10rem',
       borderRadius: '.8rem',
       background: 'var(--card-bg)',
-      color: '#fff',
+      color: 'var(--text-col)',
       border: 'none',
       fontSize: '16px',
       boxShadow: 'none'
@@ -23,7 +23,7 @@ export const Categories = styled(Select).attrs({
       width: '10rem',
       background: 'var(--card-bg)',
       borderRadius: '.8rem',
-      color: '#fff',
+      color: 'var(--text-col)',
       overflow: 'hidden'
     }),
     option: (provided, state) => ({

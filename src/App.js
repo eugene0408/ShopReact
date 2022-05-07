@@ -4,32 +4,15 @@ import styled from 'styled-components';
 import { Routes, Route, Link, useLocation } from "react-router-dom";
 // Grid
 import { Col, Container, Row } from "react-grid-system";
-// Pages
-import MainPage from './pages/MainPage/MainPage';
-import WishList from "./pages/WishList/WishList";
-import Cart from "./pages/Cart/Cart";
 // Components
-import { Categories } from "./components/Categories";
-import { CartButton, BackButton, Indicator } from "./components/Styled/Buttons";
-import { 
-  ToplineWrapper, 
-  ToplineContainer, 
-  ToplineNav, 
-  ToplineButton,
-  TopWrapper,
-  TopContainer,
-  WishLink
- } from "./components/Styled/TopLine";
-
-// Icons
-import {ReactComponent as MenuIcon} from './assets/menu.svg';
-import {ReactComponent as CartIcon} from './assets/cart.svg';
-import {ReactComponent as HeartIcon} from './assets/heart_icon.svg';
-import {ReactComponent as BackIcon} from './assets/left_arrow.svg';
-// Styles
+import Layout from "./components/Layout";
+// Pages
+import MainPage from './pages/MainPage';
+import WishList from "./pages/WishList";
+import Cart from "./pages/Cart";
+import Description from "./pages/Description";
+// Fonts
 import './fonts/fonts.css';
-import './App.css';
-
 
 const App =({
   goodsList, 
@@ -71,9 +54,14 @@ const App =({
   const goodsInCart = goods.filter(good => good.inCart === true);
   const wishList = goods.filter(good => good.inWishlist === true);
 
-  // Current page
-  const currentLocation = useLocation().pathname
-
+  // Add/remove items to goodsInCart/wishlist 
+  const addToList = (list) => (e)=> {
+    e.stopPropagation();
+    let goodsList = goods;
+    let goodIndex = goodsList.findIndex((good => good.articul == e.currentTarget.value));
+    goodsList[goodIndex][list] = !goodsList[goodIndex][list];
+    setGoods([...goodsList]);
+  };
 
   // Filter goods by selected category
   const goodsFilter = () => {
@@ -100,123 +88,49 @@ const App =({
 
 
 
-  const cartHasItems = () => {
-    if(goodsInCart.length >= 1) return  goodsInCart.length; 
-    return false;
-  }
-  cartHasItems();
-
-
-
- 
   return (
     <div className="App">
-          {/*------- Topline Menu --------*/}
-          <ToplineWrapper>
-            <ToplineContainer>
-
-              <ToplineNav>
-                <ToplineButton>
-                  <Link to='/'>
-                    <MenuIcon />
-                  </Link>
-                </ToplineButton>
-              </ToplineNav>  
-
-            </ToplineContainer>
-          </ToplineWrapper>
-
-
-
-          {/* ------ Top Navigation displaing only on Main Page ----- */}
-          {currentLocation === '/' &&       
-            <TopWrapper>
-              <TopContainer>
-
-                {/*----- Category Select ---------*/}  
-                <Categories 
-                  options={categories}
-                  onChange={e => setSelectedCategory(e.value)}
-                  defaultValue={categories[0]}
-                  value={categories[categories.findIndex(el => el.value == selectedCategory)]}
-                />
-
-                {/*------- Wishlist Link ---------*/}
-                <Link to={'/wishlist'}>
-                  <WishLink>
-                    <HeartIcon />
-                    <span>Обрані</span>
-                  </WishLink>
-                </Link>
-
-              </TopContainer>
-            </TopWrapper>
-          }
-
-
-
-          {/*--------- Bottom Navigation ----------*/}
-          {(cartHasItems() && currentLocation !== '/cart')  &&
-            <Link to="/cart">
-              <CartButton>
-                <CartIcon/>
-                  <Indicator>
-                    {cartHasItems()}
-                  </Indicator>
-              </CartButton>         
-            </Link>
-          }
-
-          {currentLocation === '/cart' &&
-            <Link to="/">
-              <CartButton>
-                <BackIcon/>
-              </CartButton>
-            </Link>
-          }
-
-          {(currentLocation !== '/' && currentLocation !== '/cart') &&
-            <Link to="/">
-              <BackButton>
-                <BackIcon/>
-              </BackButton>
-            </Link>
-          }
-
-
-
+ 
       <Routes>
+        <Route path="/" element={<Layout goodsInCart={goodsInCart}/>}>
 
-        <Route 
-          path="/" 
-          element=
-            {<MainPage 
+          <Route index 
+            element={<MainPage 
               filteredGoods={filteredGoods}
               goods={goods}
               setGoods={setGoods}
+              addToList={addToList}
+              categories={categories}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}             
             />} 
-        />
-      
-        <Route 
-          path="/wishlist" 
-          element=
-            {<WishList
-              goods={goods}
-              setGoods={setGoods}
+          />
+        
+          <Route path="wishlist" 
+            element={<WishList
               wishList={wishList}
+              addToList={addToList}
             />} 
-        />
+          />
 
-        <Route 
-          path="/cart" 
-          element=
-            {<Cart 
+          <Route path="cart" 
+            element={<Cart 
               goods={goods}
               setGoods={setGoods}
               goodsInCart={goodsInCart}
             />} 
-        />
+          />
 
+          {/* Good description page */}
+          <Route path=':id' 
+            element={<Description
+              goods={goods}
+              setGoods={setGoods}
+              addToList={addToList}
+            />}
+          />
+
+        </Route>
       </Routes>
 
     </div>

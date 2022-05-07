@@ -1,15 +1,16 @@
 // Grid
 import { Col, Container, Row } from "react-grid-system";
 // Components
-import Card from '../../components/Card/Card';
-import IsEmpty from "../../components/IsEmpty";
+import Card from '../components/Card/Card';
+import IsEmpty from "../components/IsEmpty";
 
 
 
 const WishList = ({
   goods,
   setGoods,
-  wishList
+  wishList,
+  addToList
 }) => {
 
   return (
@@ -33,6 +34,7 @@ const WishList = ({
                       articul={good.articul}
                       inWishlist={good.inWishlist}
                       inCart={good.inCart}
+                      addToList={addToList}
                       goods={goods}
                       setGoods={setGoods}
                       key={good.articul}

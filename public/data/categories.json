@@ -14,6 +14,10 @@
     {
         "value": "herbs",
         "label": "Трави"
+    },
+    {
+        "value": "nastoyku",
+        "label": "Настойки"
     }
 
 ]

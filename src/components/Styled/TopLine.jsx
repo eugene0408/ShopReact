@@ -41,36 +41,3 @@ export const ToplineButton = styled.div`
     }
 `
 
-export const TopWrapper = styled.div`
-  position: fixed;
-  top: 3.5rem;
-  width: 100%;
-  z-index: 5;
-`
-export const TopContainer = styled(Container)`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  & a {
-      text-decoration: none;
-      color: var(--text-col)
-  }
-`
-
-export const WishLink = styled.div`
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  width: 6rem;
-  height: 100%;
-  background: var(--card-bg);
-  border-radius: .8rem;
-  padding-left: .5rem;
-  & svg {
-    height: 1.5rem;
-    margin-right: .8rem;
-  }
-  & svg path{
-    fill: white;
-  }
-`

@@ -2,13 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 export const CartButton = styled.div`
-  position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  z-index: 10;
+  position: relative;
   background: var(--card-bg);
   border-radius: 50%;
-  border: 1px solid white;
+  box-shadow: var(--card-shadow);
   height: 2.8rem;
   width: 2.8rem;
   display: flex;
@@ -18,7 +15,7 @@ export const CartButton = styled.div`
     height: 1rem;
   }
   & svg path{
-    fill: white;
+    fill: var(--text-col);
   }
 `
 export const Indicator = styled.div`
@@ -34,8 +31,17 @@ export const Indicator = styled.div`
   align-items: center;
   font-size: 12px;
   font-weight: 700;
+  color: black;
 `
 
 export const BackButton = styled(CartButton)`
-  bottom: 4.5rem
+  margin-top: .7rem;
+`
+export const BottomNavContiner = styled.div`
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
 `

@@ -1,10 +1,15 @@
+// Router
+import { Routes, Route, Link } from "react-router-dom";
+// Components
 import styled from 'styled-components';
+import Description from "../../pages/Description";
 import {ReactComponent as CartIcon} from '../../assets/cart.svg'
 import {ReactComponent as LikeIcon} from '../../assets/heart_icon.svg'
 import Hrn from './Hrn'
 
 // Styled Components
 const CardContainer = styled.div`
+  position: relative;
   display: inline-block;
   width: 360px;
   max-width: 96vw;
@@ -12,6 +17,7 @@ const CardContainer = styled.div`
   border-radius: 1.5rem;
   overflow: hidden;
   z-index: 3;
+  box-shadow: var(--card-shadow);
   @media (min-width: 650px){
     margin: 1.5rem 1rem;
   }
@@ -37,7 +43,7 @@ const LikeButton = styled.button`
   cursor: pointer;
 
   & svg path {
-    fill: rgba(255, 255, 255, 0.5);
+    fill: var(--like-btn-fill);
   }
 
   & .active path {
@@ -89,18 +95,34 @@ const ActionButton = styled.button`
   align-items: center;
   cursor: pointer;
   line-height: 28px;
+  z-index: 4;
+  @media (min-width: 768px){
+    &:hover svg path{
+      fill: var(--orange);
+    } 
+  }
   & svg {
     height: 28px;
     margin-right: .5rem;
-    z-index: 3;
   }
   & svg path {
-    fill: white;
+    fill: var(--text-col);
+    transition: .3s ease;
   }
   & .active path {
     fill: var(--orange);
   }
 `
+const LinkArea = styled.div`
+  position: absolute;
+  top: 12%;
+  bottom: 15%;
+  left: 0;
+  right: 0;
+  // background: rgba(0, 0, 0, 0.5);
+  z-index: 4;
+`
+
 
 const Card = ({
   image, 
@@ -108,20 +130,14 @@ const Card = ({
   size, 
   prise, 
   shortDescription,
+  fullDescription,
   articul,
   inWishlist,
   inCart,
-  goods,
-  setGoods
+  addToList
 }) => {
 
-  // Add/remove items to cart/wishlist 
-    const addToList = (list) => (e)=> {
-      let goodsList = goods;
-      let goodIndex = goodsList.findIndex((good => good.articul == e.currentTarget.value));
-      goodsList[goodIndex][list] = !goodsList[goodIndex][list];
-      setGoods([...goodsList]);
-    };
+
 
   return (
     <CardContainer>
@@ -169,8 +185,14 @@ const Card = ({
 
       </ContentWrapper>
 
+      <Link to={articul}>
+        <LinkArea/>
+      </Link> 
+
+
     </CardContainer>
   )
 }
 
+export {LikeButton, ActionButton}
 export default Card

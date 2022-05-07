@@ -6,8 +6,7 @@ import App from './App';
 
 const root = createRoot(document.getElementById('root'))
 
-
-
+// Get data from json files before render app
 const getDataAndRender = async () => {
   let goodsData = await fetch('data/goods.json');
   let goods = await goodsData.json(); 
@@ -35,6 +34,15 @@ getDataAndRender();
 
 
 
+// root.render(
+
+//   <React.StrictMode>
+//     <BrowserRouter>
+//       <App />
+//     </BrowserRouter>
+//   </React.StrictMode>
+
+// )
 
 
-
+// "homepage": "https://carpatian-shop.netlify.app/",
