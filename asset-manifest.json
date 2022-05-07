@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.b2ea9d31.css",
-    "main.js": "/static/js/main.e096a27e.js",
+    "main.css": "/static/css/main.c3057366.css",
+    "main.js": "/static/js/main.f4801a29.js",
     "static/media/forest.jpg": "/static/media/forest.2dbd1790efe9649bc89a.jpg",
     "static/media/RobotoCondensed-Bold.woff": "/static/media/RobotoCondensed-Bold.14a7047141f97b966d40.woff",
     "static/media/RobotoCondensed-Regular.woff": "/static/media/RobotoCondensed-Regular.25787041ddfe8df69d5d.woff",
@@ -26,11 +26,11 @@
     "static/media/minus.svg": "/static/media/minus.dd524aafd836cef21d520c4d00cbf10d.svg",
     "static/media/left_arrow.svg": "/static/media/left_arrow.ec975135bfaf5aac8b2c34a301d1fe95.svg",
     "static/media/heart_icon.svg": "/static/media/heart_icon.2aa6c5d1314365d724a0e76122882658.svg",
-    "main.b2ea9d31.css.map": "/static/css/main.b2ea9d31.css.map",
-    "main.e096a27e.js.map": "/static/js/main.e096a27e.js.map"
+    "main.c3057366.css.map": "/static/css/main.c3057366.css.map",
+    "main.f4801a29.js.map": "/static/js/main.f4801a29.js.map"
   },
   "entrypoints": [
-    "static/css/main.b2ea9d31.css",
-    "static/js/main.e096a27e.js"
+    "static/css/main.c3057366.css",
+    "static/js/main.f4801a29.js"
   ]
 }
