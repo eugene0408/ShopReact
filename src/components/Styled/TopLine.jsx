@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import { Container } from 'react-grid-system';
 
 export const ToplineWrapper = styled.div`
-    position: fixed;
-    top: .5rem;
+    position: sticky;
+    top: 0;
+    background: var(--card-bg);
     z-index: 3;
     width: 100%;
 `
@@ -19,9 +20,8 @@ export const ToplineNav = styled.nav`
     align-items: center;
     justify-content: space-between;
     position: relative;
-    height: 2.5rem;
-    width: 100%;
-    background: var(--card-bg);
+    height: 3rem;
+    width: 100%;  
     padding: 0 .8rem;
     border-radius: .5rem;
 `

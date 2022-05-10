@@ -105,14 +105,14 @@ const App =({
             />} 
           />
         
-          <Route path="wishlist" 
+          <Route path="/wishlist" 
             element={<WishList
               wishList={wishList}
               addToList={addToList}
             />} 
           />
 
-          <Route path="cart" 
+          <Route path="/cart" 
             element={<Cart 
               goods={goods}
               setGoods={setGoods}
@@ -121,7 +121,7 @@ const App =({
           />
 
           {/* Good description page */}
-          <Route path=':id' 
+          <Route path='/:id' 
             element={<Description
               goods={goods}
               setGoods={setGoods}

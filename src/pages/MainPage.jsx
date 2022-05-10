@@ -35,6 +35,7 @@ const TopContainer = styled(Container)`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  height: 2.8rem;
   & a {
       text-decoration: none;
       color: var(--text-col)
@@ -48,7 +49,7 @@ const WishLink = styled.div`
   width: 6rem;
   height: 100%;
   background: var(--card-bg);
-  border-radius: .8rem;
+  border-radius: .5rem;
   padding-left: .5rem;
   & svg {
     height: 1.5rem;

@@ -6,8 +6,9 @@ export const CategorySelect = styled(Select).attrs({
   styles: {
     control: (provided) => ({
       ...provided,
+      height: '100%',
       width: '10rem',
-      borderRadius: '.8rem',
+      borderRadius: '.5rem',
       background: 'var(--card-bg)',
       color: 'var(--text-col)',
       border: 'none',
@@ -28,7 +29,7 @@ export const CategorySelect = styled(Select).attrs({
     }),
     option: (provided, state) => ({
       ...provided,
-      padding: '.2rem',
+      padding: '.2rem .4rem',
       background: state.isSelected ? 'var(--orange)' : 'transparent'
     }),
   },

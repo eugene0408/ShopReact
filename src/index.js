@@ -1,8 +1,9 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
+import ScrollToTop from './components/ScrollToTop';
 
 const root = createRoot(document.getElementById('root'))
 
@@ -16,12 +17,13 @@ const getDataAndRender = async () => {
   return(
     root.render(
       <React.StrictMode>
-          <BrowserRouter>
+          <HashRouter>
+            <ScrollToTop/>
             <App 
               goodsList={goods}
               categories={categories}
             />
-          </BrowserRouter>
+          </HashRouter>
       </React.StrictMode>,
     )
 

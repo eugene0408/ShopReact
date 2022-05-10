@@ -106,7 +106,8 @@ const Layout = ({goodsInCart}) => {
             </Footer>
 
         </>
-    )
-}
+
+        
+    )};
 
 export default Layout

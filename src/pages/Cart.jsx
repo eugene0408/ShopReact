@@ -41,7 +41,7 @@ const Cart = ({
         <>
           <Container>
             <Row>
-              <Col>
+              <Col md={8} lg={6} offset={{md: 2, lg: 3}}>
                 <CartHeader>
                   Товари у кошику:
                 </CartHeader>
@@ -52,7 +52,10 @@ const Cart = ({
           <Container>
             <Row>
               { goodsInCart.map((good)=> (
-                <Col md={6}
+                <Col 
+                  md={8}
+                  lg={6}
+                  offset={{md: 2, lg: 3}}
                   style={{marginBottom: '1rem'}}
                   key={good.articul}
                 >
@@ -79,12 +82,17 @@ const Cart = ({
 
           <Container>
             <Row>
-              <Col style={{
-                display: 'flex',
-                justifyContent: 'end'
-              }}>
+              <Col 
+                style={{
+                  display: 'flex',
+                  justifyContent: 'end'
+                }}
+                md={8}
+                lg={6}
+                offset={{md: 2, lg: 3}}
+              >
                 <div>
-                  <h2>Всього:</h2>
+                  <h2>Всього<span style={{color: 'var(--orange)'}}>:</span></h2>
                   <TotalValue>
                     {total}
                     <Hrn fz={18} fw={300} />
