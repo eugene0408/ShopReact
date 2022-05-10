@@ -1,78 +1,138 @@
 [
+ 
     {
         "articul": "0001",
         "category": "tea",
         "name": "Іван Чай",
         "size": "200",
-        "price": "98",
-        "image": "images/tea.png",
-        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
-        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+        "price": "75",
+        "image": "images/ivan-chai.webp",
+        "description": "Іван-чай відомий своїми корисними властивостями ще з часів Київської Русі. Його називали «напоєм сили» за тонізувальний вплив на організм.\n\n Великий вміст дубильних речовин (10—20 %) і вітаміну С (400 мг на 100 г) роблять його імуностимулювальним напоєм з протизапальним впливом. Має легку знеболювальну дію, містить пектин і флавоноїди.\n Не містить кофеїну, щавлевої чи пуринової кислоти, які негативно впливають на обмін речовин. Серед мікроелементів Іван-чай містить велику кількість заліза, міді та марганцю."
     },
-
     {
         "articul": "0002",
-        "category": "honey",
-        "name": "Мед з малиною",
-        "size": "300",
-        "price": "150",
-        "image": "images/honey.png",
-        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
-        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+        "category": "tea",
+        "name": "Іван Чай з лавандою",
+        "size": "200",
+        "price": "98",
+        "image": "images/ivan-lavanda.jpg",
+        "description": "Іван-чай відомий своїми корисними властивостями ще з часів Київської Русі. Його називали «напоєм сили» за тонізувальний вплив на організм.\n\n Великий вміст дубильних речовин (10—20 %) і вітаміну С (400 мг на 100 г) роблять його імуностимулювальним напоєм з протизапальним впливом. Має легку знеболювальну дію, містить пектин і флавоноїди.\n Не містить кофеїну, щавлевої чи пуринової кислоти, які негативно впливають на обмін речовин. Серед мікроелементів Іван-чай містить велику кількість заліза, міді та марганцю."
     },
 
     {
         "articul": "0003",
-        "category": "honey",
-        "name": "Мед з мелісою",
-        "size": "400",
-        "price": "180",
-        "image": "images/honey.png",
-        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
+        "category": "herbs",
+        "name": "Листя Липи",
+        "size": "300",
+        "price": "100",
+        "image": "images/lustya-lupy.jpg",
         "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
     },
 
     {
         "articul": "0004",
-        "category": "tea",
-        "name": "Василь Чай",
-        "size": "250",
-        "price": "115",
-        "image": "images/tea.png",
-        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
-        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
-    }, 
-
-    {
-        "articul": "0005",
-        "category": "herbs",
-        "name": "Меліса",
-        "size": "100",
-        "price": "250",
-        "image": "images/tea.png",
-        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
+        "category": "honey",
+        "name": "Мед з малиною",
+        "size": "400",
+        "price": "180",
+        "image": "images/honey.png",
         "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
     },
 
     {
+        "articul": "0005",
+        "category": "tea",
+        "name": "Іван Чай з Мелісою",
+        "size": "250",
+        "price": "115",
+        "image": "images/ivan-melisa.jpg",
+        "description": "Іван-чай відомий своїми корисними властивостями ще з часів Київської Русі. Його називали «напоєм сили» за тонізувальний вплив на організм.\n\n Великий вміст дубильних речовин (10—20 %) і вітаміну С (400 мг на 100 г) роблять його імуностимулювальним напоєм з протизапальним впливом. Має легку знеболювальну дію, містить пектин і флавоноїди.\n Не містить кофеїну, щавлевої чи пуринової кислоти, які негативно впливають на обмін речовин. Серед мікроелементів Іван-чай містить велику кількість заліза, міді та марганцю."
+    }, 
+
+    {
         "articul": "0006",
         "category": "herbs",
-        "name": "Ромашка",
-        "size": "120",
-        "price": "50",
-        "image": "images/tea.png",
-        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
+        "name": "Меліса",
+        "size": "100",
+        "price": "250",
+        "image": "images/melisa.jpeg",
         "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
     },
 
     {
         "articul": "0007",
         "category": "herbs",
-        "name": "Кульбаба",
+        "name": "Ромашка",
+        "size": "120",
+        "price": "50",
+        "image": "images/romashka.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+
+    {
+        "articul": "0008",
+        "category": "honey",
+        "name": "Мед з чорницею",
+        "size": "250",
+        "price": "120",
+        "image": "images/honey2.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+
+    {
+        "articul": "0009",
+        "category": "honey",
+        "name": "Мед з бергамотом",
+        "size": "250",
+        "price": "150",
+        "image": "images/honey3.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+    {
+        "articul": "0010",
+        "category": "tea",
+        "name": "Іван Чай з трояндою",
+        "size": "250",
+        "price": "180",
+        "image": "images/ivan-rose.jpg",
+        "description": "Іван-чай відомий своїми корисними властивостями ще з часів Київської Русі. Його називали «напоєм сили» за тонізувальний вплив на організм.\n\n Великий вміст дубильних речовин (10—20 %) і вітаміну С (400 мг на 100 г) роблять його імуностимулювальним напоєм з протизапальним впливом. Має легку знеболювальну дію, містить пектин і флавоноїди.\n Не містить кофеїну, щавлевої чи пуринової кислоти, які негативно впливають на обмін речовин. Серед мікроелементів Іван-чай містить велику кількість заліза, міді та марганцю."
+    },
+    
+    {
+        "articul": "0011",
+        "category": "herbs",
+        "name": "Календула",
+        "size": "120",
+        "price": "50",
+        "image": "images/calendula.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+    {
+        "articul": "0012",
+        "category": "herbs",
+        "name": "Ехінацея",
         "size": "100",
         "price": "80",
-        "image": "images/tea.png",
-        "shortDescription": "Explicabo alias fugit ullam distinctio quidem.Numquam dolorum eligendi",
+        "image": "images/ekhinatseja.jpg",
         "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+    {
+        "articul": "0013",
+        "category": "herbs",
+        "name": "Звіробій",
+        "size": "100",
+        "price": "110",
+        "image": "images/zvirobiy.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+    {
+        "articul": "0014",
+        "category": "tea",
+        "name": "Іван Чай з чебрецем",
+        "size": "250",
+        "price": "180",
+        "image": "images/ivan-chebrets.jpg",
+        "description": "Іван-чай відомий своїми корисними властивостями ще з часів Київської Русі. Його називали «напоєм сили» за тонізувальний вплив на організм.\n\n Великий вміст дубильних речовин (10—20 %) і вітаміну С (400 мг на 100 г) роблять його імуностимулювальним напоєм з протизапальним впливом. Має легку знеболювальну дію, містить пектин і флавоноїди.\n Не містить кофеїну, щавлевої чи пуринової кислоти, які негативно впливають на обмін речовин. Серед мікроелементів Іван-чай містить велику кількість заліза, міді та марганцю."
     }
+
 ]

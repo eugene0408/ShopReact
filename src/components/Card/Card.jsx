@@ -2,7 +2,7 @@
 import { Routes, Route, Link } from "react-router-dom";
 // Components
 import styled from 'styled-components';
-import Description from "../../pages/Description";
+import { CardActionButton, LikeButton } from "../Styled/Buttons";
 import {ReactComponent as CartIcon} from '../../assets/cart.svg'
 import {ReactComponent as LikeIcon} from '../../assets/heart_icon.svg'
 import Hrn from './Hrn'
@@ -31,25 +31,6 @@ const CardImage = styled.div`
   width: 100%;
   height: 12rem;
 `
-
-const LikeButton = styled.button`
-  position: absolute;
-  top: .5rem;
-  right: .5em;
-  background: transparent;
-  height: 2.5rem;
-  width: 2.5rem;
-  border: none;
-  cursor: pointer;
-
-  & svg path {
-    fill: var(--like-btn-fill);
-  }
-
-  & .active path {
-    fill: var(--orange);
-  }
-`
 const ContentWrapper = styled.div`
   padding: 0.5rem 1rem;
 `
@@ -63,6 +44,7 @@ const ContentItem = styled.div`
 const CardName = styled.h2`
   font-weight: 700;
   font-size: 24px;
+  white-space: nowrap;
   text-transform: uppercase;
 `
 
@@ -75,6 +57,9 @@ const CardSize = styled.p`
 
 const CardDescription = styled.p`
   font-weight: 200;
+  & span{
+    color: var(--orange);
+  }
 `
 
 const CardPrice = styled.p`
@@ -82,44 +67,12 @@ const CardPrice = styled.p`
   font-size: 32px;
 `
 
-const ActionButton = styled.button`
-  font-family: 'Oswald', 'Oswald2', serif;
-  background: transparent;
-  color: white;
-  border-radius: 1rem;
-  border: 1px solid white;
-  font-weight: 600;
-  text-transform: uppercase;
-  padding: .4rem 1.5rem;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  line-height: 28px;
-  z-index: 4;
-  @media (min-width: 768px){
-    &:hover svg path{
-      fill: var(--orange);
-    } 
-  }
-  & svg {
-    height: 28px;
-    margin-right: .5rem;
-  }
-  & svg path {
-    fill: var(--text-col);
-    transition: .3s ease;
-  }
-  & .active path {
-    fill: var(--orange);
-  }
-`
 const LinkArea = styled.div`
   position: absolute;
   top: 12%;
   bottom: 15%;
   left: 0;
   right: 0;
-  // background: rgba(0, 0, 0, 0.5);
   z-index: 4;
 `
 
@@ -129,15 +82,14 @@ const Card = ({
   name, 
   size, 
   prise, 
-  shortDescription,
-  fullDescription,
+  description,
   articul,
   inWishlist,
   inCart,
   addToList
 }) => {
 
-
+  const shortDescription = description.slice(0, 80)
 
   return (
     <CardContainer>
@@ -156,7 +108,8 @@ const Card = ({
 
         <ContentItem>
           <CardName>
-            {name}
+            {/* Max name length 19*/}
+            {name.slice(0, 19)}
           </CardName>
           <CardSize>
             {size}
@@ -166,6 +119,7 @@ const Card = ({
 
         <CardDescription>
           {shortDescription}
+          <span>...</span>
         </CardDescription>
 
         <ContentItem>
@@ -174,13 +128,13 @@ const Card = ({
             <Hrn fz={26} fw={300} />
           </CardPrice>
 
-          <ActionButton
+          <CardActionButton
             value={articul}
             onClick={addToList('inCart')}
           >
             <CartIcon className={inCart ? "active" : ""} />
             {inCart ? "у кошику":"у кошик"}
-          </ActionButton>
+          </CardActionButton>
         </ContentItem>
 
       </ContentWrapper>
@@ -194,5 +148,4 @@ const Card = ({
   )
 }
 
-export {LikeButton, ActionButton}
 export default Card

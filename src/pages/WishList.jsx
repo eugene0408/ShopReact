@@ -4,8 +4,6 @@ import { Col, Container, Row } from "react-grid-system";
 import Card from '../components/Card/Card';
 import IsEmpty from "../components/IsEmpty";
 
-
-
 const WishList = ({
   goods,
   setGoods,
@@ -14,15 +12,20 @@ const WishList = ({
 }) => {
 
   return (
-    <div style={{marginTop: "3rem", width: "100%"}}>
+    <div style={{marginTop: "3rem", width: "100%", minHeight: "80vh"}}>
 
       {wishList.length === 0 && <IsEmpty text={'Список порожній'} />}
 
       <Container>
           <Row>
-            <Col>
+            
                 {wishList.map((good) => (
-                  
+                  <Col
+                    md={6} 
+                    xl={4}
+                    xxl={3}
+                    key={good.articul}
+                  >
                     <Card 
                       category={good.category}
                       name={good.name}
@@ -37,10 +40,9 @@ const WishList = ({
                       addToList={addToList}
                       goods={goods}
                       setGoods={setGoods}
-                      key={good.articul}
                     />
+                  </Col>
                 ))}
-          </Col>
         </Row>
       </Container>
     </div>

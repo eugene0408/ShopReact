@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import styled from "styled-components"
 // Router
 import { Link } from "react-router-dom";
@@ -8,17 +9,14 @@ import background from '../assets/forest.jpg';
 import {ReactComponent as HeartIcon} from '../assets/heart_icon.svg';
 // Components
 import Card from '../components/Card/Card';
-import {CategorySelect} from '../components/CategorySelect'
-import Description from "./Description";
-
-
+import Pagination from "../components/Pagination";
+import {CategorySelect} from '../components/CategorySelect';
 
 // Styled Components: 
 const DarkCover = styled.div`
   background: rgba(0, 0, 0, 0.5);
   position: absolute;
   inset: 0;
-  border-radius: 50%;
   z-index: 1;
 `
 const Wrapper = styled.div`
@@ -67,35 +65,31 @@ const Header = styled.header`
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  border-radius: 50%;
-  margin-top: 8rem;
-  height: 280px;
-  width: 280px;
+  height: 70vh;
+  width: 100%;
+  max-width: 1920px;
+  display: flex;
+  justify-content: center;
 `
 const HeaderTitle = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  position: absolute;
-  left: 50%;
+  justify-content: center;
   z-index: 2;
   height: 100%;
-  width: 130%;
-  transform: translateX(-50%);
 
 `
 const TitleNumber = styled.h2`
   width: 50%;
-  font-size: 65px;
+  font-size: 60px;
   font-weight: 800;
-  padding-right: 1rem;
+  padding-right: .5rem;
 `
 
 const TitleText = styled.p`
   font-size: 21px;
-  width: 50%;
   border-left: 1px solid white;
-  padding-left: 1rem;
+  padding-left: .5rem;
 `
 
 const CatalogWrapper = styled.div`
@@ -113,6 +107,20 @@ const MainPage = ({
   selectedCategory,
   setSelectedCategory
 }) => {
+
+  // Pagination
+  const [curPage, setCurPage] = useState(1);
+  const cardsPerPage = 8;
+  // Get current cards
+  const indexOfLastCard = curPage * cardsPerPage;
+  const indexOfFirstCard = indexOfLastCard - cardsPerPage;
+  const curGoods = filteredGoods.slice(indexOfFirstCard, indexOfLastCard);
+  // Change page
+  const paginate = pageNumber => setCurPage(pageNumber);
+  // Set page to default when change category
+  useEffect(() => {
+    setCurPage(1);
+  }, [filteredGoods])
 
   return (
     <div className='MainPage' style={{position: "relative"}}>
@@ -140,19 +148,19 @@ const MainPage = ({
               </TopContainer>
             </TopWrapper>
 
-      <Container>
-        <Wrapper>
 
-          <Header background={background}>
-            <DarkCover/>
-            <HeaderTitle>
-              <TitleNumber>100%</TitleNumber>
-              <TitleText>натуральні продукти на основі трав</TitleText>
-            </HeaderTitle>
-          </Header>
+      <Wrapper>
 
-        </Wrapper>
-      </Container>
+        <Header background={background}>
+          <DarkCover/>
+          <HeaderTitle>
+            <TitleNumber>100%</TitleNumber>
+            <TitleText>натуральні продукти на основі трав</TitleText>
+          </HeaderTitle>
+        </Header>
+
+      </Wrapper>
+
 
       {/* 
       ----------  Goods list ----------------
@@ -161,7 +169,7 @@ const MainPage = ({
         <Container>
           <Row>
 
-            { filteredGoods.map((good)=> (
+            { curGoods.map((good)=> (
               <Col 
                 md={6} 
                 xl={4}
@@ -180,8 +188,7 @@ const MainPage = ({
                     image={good.image}
                     size={good.size}
                     prise={good.price}
-                    shortDescription={good.shortDescription}
-                    fullDescription={good.fullDescription}
+                    description={good.description}
                     articul={good.articul}
                     inWishlist={good.inWishlist}
                     inCart={good.inCart}
@@ -193,6 +200,20 @@ const MainPage = ({
 
           </Row>
         </Container>
+
+        {/* 
+        ------------------- Pagination --------------------------- 
+        */}
+        <Container>
+          <Pagination
+            cardsPerPage={cardsPerPage}
+            totalCards={filteredGoods.length}
+            curPage={curPage}
+            paginate={paginate}
+           />
+        </Container>
+
+
       </CatalogWrapper>
 
     </div>

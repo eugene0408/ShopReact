@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+// Navigation Buttons
 export const CartButton = styled.div`
   position: relative;
   background: var(--card-bg);
@@ -44,4 +45,64 @@ export const BottomNavContiner = styled.div`
   z-index: 4;
   display: flex;
   flex-direction: column;
+`
+
+// Card buttons
+export const CardActionButton = styled.button`
+  font-family: 'Oswald', 'Oswald2', serif;
+  color: var(--text-col);
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 28px;
+  background: transparent;
+  border: none;
+  border-radius: .8rem;
+  box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.2);;
+  width: 8rem;
+  height: 2.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 4;
+  @media (min-width: 768px){
+    &:hover svg path{
+      fill: var(--orange);
+    } 
+  }
+  & svg {
+    height: 28px;
+    margin-right: .5rem;
+  }
+  & svg * {
+    fill: var(--text-col);
+    transition: .3s ease;
+  }
+  & .active * {
+    fill: var(--orange);
+  }
+`
+
+export const DescrActionButton = styled(CardActionButton)`
+  height: 3rem;
+  width: 10rem;
+`
+
+export const LikeButton = styled.button`
+  position: absolute;
+  top: .5rem;
+  right: .5em;
+  background: transparent;
+  height: 2.5rem;
+  width: 2.5rem;
+  border: none;
+  cursor: pointer;
+  & svg path {
+    fill: var(--like-btn-fill);
+    stroke: black;
+    stroke-width: 4;
+  }
+  & .active path {
+    fill: var(--orange);
+  }
 `

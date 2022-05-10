@@ -50,7 +50,6 @@ const App =({
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [filteredGoods, setFilteredGoods] = useState([]);
 
-
   const goodsInCart = goods.filter(good => good.inCart === true);
   const wishList = goods.filter(good => good.inWishlist === true);
 
@@ -58,7 +57,7 @@ const App =({
   const addToList = (list) => (e)=> {
     e.stopPropagation();
     let goodsList = goods;
-    let goodIndex = goodsList.findIndex((good => good.articul == e.currentTarget.value));
+    let goodIndex = goodsList.findIndex((good => good.articul === e.currentTarget.value));
     goodsList[goodIndex][list] = !goodsList[goodIndex][list];
     setGoods([...goodsList]);
   };
