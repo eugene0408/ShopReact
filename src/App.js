@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from 'styled-components';
 // Router
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, Link, useLocation } from "react-router-dom";
 // Grid
 import { Col, Container, Row } from "react-grid-system";
 // Components
@@ -11,8 +11,10 @@ import MainPage from './pages/MainPage';
 import WishList from "./pages/WishList";
 import Cart from "./pages/Cart";
 import Description from "./pages/Description";
+import NotFound from "./pages/NotFound";
 // Fonts
 import './fonts/fonts.css';
+
 
 const App =({
   goodsList, 
@@ -85,13 +87,22 @@ const App =({
     saveToLocal();
   }, [goods])
 
-
+  // Theme
+  const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  const [theme, setTheme] = useState(defaultDark ? "dark": "light");
 
   return (
-    <div className="App">
+    <div className="App" data-theme={theme}>
  
       <Routes>
-        <Route path="/" element={<Layout goodsInCart={goodsInCart}/>}>
+        <Route 
+          path="/" 
+          element={<Layout 
+            goodsInCart={goodsInCart}
+            theme={theme}
+            setTheme={setTheme}
+            />}
+        >
 
           <Route index 
             element={<MainPage 
@@ -121,13 +132,21 @@ const App =({
           />
 
           {/* Good description page */}
-          <Route path='/:id' 
+          <Route path=':id' 
             element={<Description
               goods={goods}
               setGoods={setGoods}
               addToList={addToList}
             />}
           />
+          <Route path='/wishlist/:id' element={<Description
+              goods={goods}
+              setGoods={setGoods}
+              addToList={addToList}
+            />}
+          />
+
+          
 
         </Route>
       </Routes>

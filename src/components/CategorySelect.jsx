@@ -9,15 +9,14 @@ export const CategorySelect = styled(Select).attrs({
       height: '100%',
       width: '10rem',
       borderRadius: '.5rem',
-      background: 'var(--card-bg)',
-      color: 'var(--text-col)',
+      background: 'var(--card-bg)',  
       border: 'none',
       fontSize: '16px',
       boxShadow: 'none'
     }),
     singleValue: (provided) => ({
       ...provided,
-      color: '#fff'
+      color: 'var(--text-col)',
     }), 
     menu: (provided) => ({
       ...provided,

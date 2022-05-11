@@ -11,7 +11,7 @@ import Hrn from '../components/Card/Hrn'
 
 
 const Wrapper = styled.div`
-  padding-top: 4rem;
+  padding-top: 1rem;
   padding-bottom: 2rem;
 `
 const Header = styled.h2`

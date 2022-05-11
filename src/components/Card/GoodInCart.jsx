@@ -96,7 +96,6 @@ const CountButton = styled.button`
     width: 1.8rem;
     border: none;
     border-radius: 50%;
-    color: white;
     background: transparent;
     display: flex;
     justify-content: center;
@@ -106,7 +105,7 @@ const CountButton = styled.button`
         width: 100%;
     }
     & svg rect, & svg polygon {
-        fill: #fff;
+        fill: var(--text-col);
     }
 `
 const Amount = styled.p`
@@ -136,7 +135,7 @@ const GoodInCart = ({
   // Delete item from cart
   const delButtonHandler = (e)=> {
     let goodsList = goods;
-    let goodIndex = goodsList.findIndex((good => good.articul == e.currentTarget.value));
+    let goodIndex = goodsList.findIndex((good => good.articul === e.currentTarget.value));
     goodsList[goodIndex].inCart = false;
     goodsList[goodIndex].amount = 1;
     setGoods([...goodsList]);
@@ -145,14 +144,14 @@ const GoodInCart = ({
   // Counter Handler
   const plusButtonHandler = (e) => {
     let list = goods
-    const index = list.findIndex((good => good.articul == e.currentTarget.value));
+    const index = list.findIndex((good => good.articul === e.currentTarget.value));
     list[index].amount += 1
     setGoods([...list])
   }
 
   const minusButtonHandler = (e) => {
     let list = goods
-    const index = list.findIndex((good => good.articul == e.currentTarget.value));
+    const index = list.findIndex((good => good.articul === e.currentTarget.value));
     if(list[index].amount > 1){
         list[index].amount -= 1
     }

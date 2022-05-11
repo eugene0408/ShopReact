@@ -56,7 +56,7 @@ const WishLink = styled.div`
     margin-right: .8rem;
   }
   & svg path{
-    fill: var(--text-col);
+    fill: var(--icons-fill);
   }
 `
 
@@ -76,6 +76,7 @@ const HeaderTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
   z-index: 2;
   height: 100%;
 
@@ -96,7 +97,7 @@ const TitleText = styled.p`
 const CatalogWrapper = styled.div`
   width: 100%;
   position: relative;
-  padding-top: 10rem;
+  padding-top: 4rem;
   z-index: 2;
 `
 

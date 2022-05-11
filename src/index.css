@@ -1,11 +1,21 @@
 :root{
-  --dark-bg: #292524;
+  --main-bg: #292524;
   --card-bg: #212121;
   --text-col: #f2f2f2;
   --orange: #FFA000;
   --red: red;
   --like-btn-fill: rgba(255, 255, 255, 0.5);
+  --icons-fill: #f2f2f2;
   --card-shadow: 0px 0px 8px 4px rgba(0,0,0,0.3); 
+
+}
+
+[data-theme='light']{
+  --main-bg: #f2f2f2;
+  --card-bg: white;
+  --text-col: black;
+  --icons-fill: rgba(0,0,0,0.5);
+  --card-shadow: 0px 0px 10px 6px rgba(102, 82, 82, 0.2);
 
 }
 
@@ -13,13 +23,15 @@ body {
   margin: 0;
   scroll-behavior: smooth;
   box-sizing: border-box;
-  font-family: 'Oswald', 'Oswald2', 'RobotoCondensed', sans-serif;
+  font-family: 'Oswald', 'Oswald2', 'RobotoCondensed', sans-serif; 
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--dark-bg);
-  position: relative;
-  color: var(--text-col);
+  position: relative;   
   font-size: 16px;
+}
+.App{
+  background: var(--main-bg);
+  color: var(--text-col);
 }
 
 h2, p{
@@ -29,6 +41,8 @@ a{
   text-decoration: none;
   color: var(--text-col)
 }
+
+
 
 
 

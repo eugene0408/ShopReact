@@ -24,6 +24,7 @@ export const ToplineNav = styled.nav`
     width: 100%;  
     padding: 0 .8rem;
     border-radius: .5rem;
+    padding: 0;
 `
 
 export const ToplineButton = styled.div`

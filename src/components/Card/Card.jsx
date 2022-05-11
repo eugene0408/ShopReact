@@ -1,5 +1,5 @@
 // Router
-import { Routes, Route, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 // Components
 import styled from 'styled-components';
 import { CardActionButton, LikeButton } from "../Styled/Buttons";
@@ -57,6 +57,7 @@ const CardSize = styled.p`
 
 const CardDescription = styled.p`
   font-weight: 200;
+  color: var(--text-col);
   & span{
     color: var(--orange);
   }

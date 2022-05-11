@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// Navigation Buttons
+// Side Navigation Buttons
 export const CartButton = styled.div`
   position: relative;
   background: var(--card-bg);
@@ -54,7 +54,7 @@ export const CardActionButton = styled.button`
   font-weight: 600;
   text-transform: uppercase;
   line-height: 28px;
-  background: transparent;
+  background: var(--card-bg);
   border: none;
   border-radius: .8rem;
   box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.2);;
@@ -75,14 +75,14 @@ export const CardActionButton = styled.button`
     margin-right: .5rem;
   }
   & svg * {
-    fill: var(--text-col);
+    fill: var(--icons-fill);
     transition: .3s ease;
   }
   & .active * {
     fill: var(--orange);
   }
 `
-
+// Cart button on description page
 export const DescrActionButton = styled(CardActionButton)`
   height: 3rem;
   width: 10rem;
@@ -103,6 +103,20 @@ export const LikeButton = styled.button`
     stroke-width: 4;
   }
   & .active path {
+    fill: var(--orange);
+  }
+`
+
+export const ThemeSwitch = styled.button`
+  border: none;
+  background: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  & svg {
+    height: 28px;
+  }
+  & svg path {
     fill: var(--orange);
   }
 `

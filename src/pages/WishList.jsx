@@ -25,6 +25,12 @@ const WishList = ({
                     xl={4}
                     xxl={3}
                     key={good.articul}
+                    style={{
+                      marginBottom: "1rem",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center"
+                    }}
                   >
                     <Card 
                       category={good.category}

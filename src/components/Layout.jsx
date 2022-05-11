@@ -1,8 +1,10 @@
 import React from 'react';
 // Router
-import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 // Icons
 import { ReactComponent as MenuIcon } from '../assets/menu.svg';
+import { ReactComponent as SunIcon } from '../assets/sun.svg';
+import { ReactComponent as MoonIcon } from '../assets/moon.svg';
 import { ReactComponent as CartIcon } from '../assets/cart.svg';
 import { ReactComponent as BackIcon } from '../assets/left_arrow.svg';
 import { ReactComponent as FbIcon } from '../assets/facebook.svg';
@@ -13,7 +15,8 @@ import {
     BottomNavContiner, 
     CartButton, 
     BackButton, 
-    Indicator 
+    Indicator, 
+    ThemeSwitch
 } from "./Styled/Buttons";
 import {
     ToplineWrapper,
@@ -29,10 +32,15 @@ import {
 } from "./Styled/Footer"
 
 
-const Layout = ({goodsInCart}) => {
+const Layout = ({
+    goodsInCart,
+    theme, 
+    setTheme
+}) => {
 
     // Current page 
     const currentLocation = useLocation().pathname;
+    const navigate = useNavigate();
 
     // Return how many goods are in cart
     const cartHasItems = () => {
@@ -40,6 +48,11 @@ const Layout = ({goodsInCart}) => {
         return false;
     }
     cartHasItems();
+
+    // Switch theme
+    const switchTheme = () => {
+      theme === 'light' ? setTheme('dark') : setTheme('light')
+    }
 
 
     return (
@@ -52,6 +65,15 @@ const Layout = ({goodsInCart}) => {
                         <ToplineButton>
                             <MenuIcon />
                         </ToplineButton>
+
+                        <ThemeSwitch onClick={switchTheme}>
+                            {theme === 'light' &&
+                                <SunIcon/>
+                            }
+                            {theme === 'dark' &&
+                                <MoonIcon/>
+                            }
+                        </ThemeSwitch>
                     </ToplineNav>
 
                 </ToplineContainer>
@@ -78,11 +100,11 @@ const Layout = ({goodsInCart}) => {
                 }
 
                 {currentLocation !== '/'  &&
-                    <Link to="/">
-                        <BackButton>
-                            <BackIcon />
-                        </BackButton>
-                    </Link>
+  
+                    <BackButton onClick={()=> navigate(-1)}>
+                        <BackIcon />
+                    </BackButton>
+
                 }
 
             </BottomNavContiner>
