@@ -7,7 +7,7 @@ const IsEmpty = ({text}) => {
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
-        height: '70vh'
+        height: '75vh'
       }}>
         <span style={{
           fontSize: '75px',

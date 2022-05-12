@@ -2,7 +2,7 @@ import React from 'react';
 // Router
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
 // Icons
-import { ReactComponent as MenuIcon } from '../assets/menu.svg';
+import { ReactComponent as Logo } from '../assets/logo.svg';
 import { ReactComponent as SunIcon } from '../assets/sun.svg';
 import { ReactComponent as MoonIcon } from '../assets/moon.svg';
 import { ReactComponent as CartIcon } from '../assets/cart.svg';
@@ -22,7 +22,7 @@ import {
     ToplineWrapper,
     ToplineContainer,
     ToplineNav,
-    ToplineButton
+    LogoWrapper
 } from "./Styled/TopLine";
 import {
     Footer,
@@ -62,9 +62,11 @@ const Layout = ({
                 <ToplineContainer>
 
                     <ToplineNav>
-                        <ToplineButton>
-                            <MenuIcon />
-                        </ToplineButton>
+                        <Link to="/">
+                            <LogoWrapper>
+                                <Logo />
+                            </LogoWrapper>
+                        </Link>
 
                         <ThemeSwitch onClick={switchTheme}>
                             {theme === 'light' &&

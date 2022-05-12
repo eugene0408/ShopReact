@@ -33,7 +33,7 @@ const Cart = ({
   calculateTotal()
 
   return (
-    <div className='Cart' style={{minHeight: "80vh"}}>
+    <div className='Cart' style={{ minHeight: "75vh" }} >
 
       {goodsInCart.length === 0 && <IsEmpty text={'Кошик порожній'}/>}
 

@@ -7,6 +7,7 @@
   --like-btn-fill: rgba(255, 255, 255, 0.5);
   --icons-fill: #f2f2f2;
   --card-shadow: 0px 0px 8px 4px rgba(0,0,0,0.3); 
+  --header-dark-cover: rgba(0, 0, 0, 0.3);
 
 }
 
@@ -16,7 +17,7 @@
   --text-col: black;
   --icons-fill: rgba(0,0,0,0.5);
   --card-shadow: 0px 0px 10px 6px rgba(102, 82, 82, 0.2);
-
+  --header-dark-cover: rgba(0, 0, 0, 0.1);
 }
 
 body {
@@ -39,7 +40,8 @@ h2, p{
 }
 a{
   text-decoration: none;
-  color: var(--text-col)
+  color: var(--text-col);
+  
 }
 
 

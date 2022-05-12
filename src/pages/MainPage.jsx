@@ -11,10 +11,11 @@ import {ReactComponent as HeartIcon} from '../assets/heart_icon.svg';
 import Card from '../components/Card/Card';
 import Pagination from "../components/Pagination";
 import {CategorySelect} from '../components/CategorySelect';
+import { FavIndicator } from "../components/Styled/Buttons";
 
 // Styled Components: 
 const DarkCover = styled.div`
-  background: rgba(0, 0, 0, 0.5);
+  background: var(--header-dark-cover);
   position: absolute;
   inset: 0;
   z-index: 1;
@@ -43,20 +44,38 @@ const TopContainer = styled(Container)`
 `
 
 const WishLink = styled.div`
+  position: relative;
   display: flex;
   justify-content: start;
   align-items: center;
-  width: 6rem;
+  width: 7rem;
   height: 100%;
   background: var(--card-bg);
   border-radius: .5rem;
   padding-left: .5rem;
+  box-shadow: var(--card-shadow);
   & svg {
     height: 1.5rem;
-    margin-right: .8rem;
+    margin-right: .5rem;
   }
   & svg path{
     fill: var(--icons-fill);
+  }
+  & span {
+    position: relative;
+    padding-left: .8rem;
+    line-height: 1.8;
+  }
+  & span::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 1px;
+    box-sizing: border-box;
+    background: var(--text-col);
+    opacity: .4;
+    
   }
 `
 
@@ -66,32 +85,36 @@ const Header = styled.header`
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
-  height: 70vh;
-  width: 100%;
-  max-width: 1920px;
+  height: 20rem;
+  width: 20rem;
+  margin-top: 5rem;
   display: flex;
   justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
 `
 const HeaderTitle = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
   color: white;
   z-index: 2;
-  height: 100%;
-
+  padding-left: .5rem;
+  line-height: 1.2;
+  text-align: center;
 `
 const TitleNumber = styled.h2`
-  width: 50%;
-  font-size: 60px;
-  font-weight: 800;
-  padding-right: .5rem;
+  font-size: 65px;
+  font-weight: 800; 
+  border-bottom: 1px solid var(--orange)
 `
 
 const TitleText = styled.p`
-  font-size: 21px;
-  border-left: 1px solid white;
-  padding-left: .5rem;
+  font-size: 22px;
+  line-height: 1.1;
 `
 
 const CatalogWrapper = styled.div`
@@ -107,22 +130,31 @@ const MainPage = ({
   addToList,
   categories,
   selectedCategory,
-  setSelectedCategory
+  setSelectedCategory,
+  wishList,
 }) => {
 
   // Pagination
   const [curPage, setCurPage] = useState(1);
-  const cardsPerPage = 8;
+  const cardsPerPage = 12;
+
   // Get current cards
   const indexOfLastCard = curPage * cardsPerPage;
   const indexOfFirstCard = indexOfLastCard - cardsPerPage;
   const curGoods = filteredGoods.slice(indexOfFirstCard, indexOfLastCard);
+
   // Change page
   const paginate = pageNumber => setCurPage(pageNumber);
   // Set page to default when change category
   useEffect(() => {
     setCurPage(1);
-  }, [filteredGoods])
+  }, [filteredGoods]);
+
+
+
+  // Wish list has items indicator
+  const wishlistHasItems = () => wishList.length >= 1 ? true : false;
+  wishlistHasItems();
 
   return (
     <div className='MainPage' style={{position: "relative"}}>
@@ -143,6 +175,9 @@ const MainPage = ({
                 <Link to={'wishlist'}>
                   <WishLink>
                     <HeartIcon />
+                    {wishlistHasItems() &&
+                      <FavIndicator/>
+                    }  
                     <span>Обране</span>
                   </WishLink>
                 </Link>
@@ -157,7 +192,7 @@ const MainPage = ({
           <DarkCover/>
           <HeaderTitle>
             <TitleNumber>100%</TitleNumber>
-            <TitleText>натуральні продукти на основі трав</TitleText>
+            <TitleText>натуральні продукти <br/> на основі трав</TitleText>
           </HeaderTitle>
         </Header>
 

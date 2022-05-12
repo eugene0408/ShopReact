@@ -12,7 +12,7 @@ const WishList = ({
 }) => {
 
   return (
-    <div style={{marginTop: "3rem", width: "100%", minHeight: "80vh"}}>
+    <div style={{marginTop: "3rem", width: "100%", minHeight: "75vh"}}>
 
       {wishList.length === 0 && <IsEmpty text={'Список порожній'} />}
 

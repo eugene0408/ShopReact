@@ -12,12 +12,17 @@ export const CategorySelect = styled(Select).attrs({
       background: 'var(--card-bg)',  
       border: 'none',
       fontSize: '16px',
-      boxShadow: 'none'
+      boxShadow: 'var(--card-shadow)'
     }),
     singleValue: (provided) => ({
       ...provided,
       color: 'var(--text-col)',
     }), 
+    indicatorSeparator: (provided) => ({
+      ...provided,
+      backgroundColor: 'var(--text-col)',
+      opacity: '.4'
+    }),
     menu: (provided) => ({
       ...provided,
       width: '10rem',

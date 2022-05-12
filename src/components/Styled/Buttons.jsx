@@ -35,6 +35,17 @@ export const Indicator = styled.div`
   color: black;
 `
 
+export const FavIndicator = styled.div`
+  position: absolute;
+  background: var(--orange);
+  border-radius: 50%;
+  left: 1.5rem;
+  bottom: .6rem;
+  height: .7rem;
+  width: .7rem;
+
+`
+
 export const BackButton = styled(CartButton)`
   margin-top: .7rem;
 `

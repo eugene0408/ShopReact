@@ -140,7 +140,7 @@ const Card = ({
 
       </ContentWrapper>
 
-      <Link to={articul}>
+      <Link to={`/${articul}`}>
         <LinkArea/>
       </Link> 
 
