@@ -130,6 +130,69 @@
         "price": "180",
         "image": "images/ivan-chebrets.jpg",
         "description": "Іван-чай відомий своїми корисними властивостями ще з часів Київської Русі. Його називали «напоєм сили» за тонізувальний вплив на організм.\n\n Великий вміст дубильних речовин (10—20 %) і вітаміну С (400 мг на 100 г) роблять його імуностимулювальним напоєм з протизапальним впливом. Має легку знеболювальну дію, містить пектин і флавоноїди.\n Не містить кофеїну, щавлевої чи пуринової кислоти, які негативно впливають на обмін речовин. Серед мікроелементів Іван-чай містить велику кількість заліза, міді та марганцю."
+    },
+    {
+        "articul": "0015",
+        "category": "tea",
+        "name": "Іван Чай з малиною",
+        "size": "250",
+        "price": "155",
+        "image": "images/ivan-rose.jpg",
+        "description": "Іван-чай відомий своїми корисними властивостями ще з часів Київської Русі. Його називали «напоєм сили» за тонізувальний вплив на організм.\n\n Великий вміст дубильних речовин (10—20 %) і вітаміну С (400 мг на 100 г) роблять його імуностимулювальним напоєм з протизапальним впливом. Має легку знеболювальну дію, містить пектин і флавоноїди.\n Не містить кофеїну, щавлевої чи пуринової кислоти, які негативно впливають на обмін речовин. Серед мікроелементів Іван-чай містить велику кількість заліза, міді та марганцю."
+    },
+    {
+        "articul": "0016",
+        "category": "tea",
+        "name": "Іван Чай з смородиною",
+        "size": "250",
+        "price": "150",
+        "image": "images/ivan-lavanda.jpg",
+        "description": "Іван-чай відомий своїми корисними властивостями ще з часів Київської Русі. Його називали «напоєм сили» за тонізувальний вплив на організм.\n\n Великий вміст дубильних речовин (10—20 %) і вітаміну С (400 мг на 100 г) роблять його імуностимулювальним напоєм з протизапальним впливом. Має легку знеболювальну дію, містить пектин і флавоноїди.\n Не містить кофеїну, щавлевої чи пуринової кислоти, які негативно впливають на обмін речовин. Серед мікроелементів Іван-чай містить велику кількість заліза, міді та марганцю."
+    },
+    {
+        "articul": "0017",
+        "category": "honey",
+        "name": "Мед з смородиною",
+        "size": "250",
+        "price": "180",
+        "image": "images/honey3.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+    {
+        "articul": "0019",
+        "category": "honey",
+        "name": "Мед з малиною",
+        "size": "250",
+        "price": "180",
+        "image": "images/honey2.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+    {
+        "articul": "0020",
+        "category": "honey",
+        "name": "Мед з лимоном",
+        "size": "250",
+        "price": "180",
+        "image": "images/honey.png",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+    {
+        "articul": "0021",
+        "category": "honey",
+        "name": "Мед з ромашкою",
+        "size": "250",
+        "price": "180",
+        "image": "images/honey2.jpg",
+        "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Explicabo alias fugit ullam distinctio quidem, quasi veniam? Numquam dolorum eligendi, quod praesentium iusto odio aspernatur. Nemo."
+    },
+    {
+        "articul": "0022",
+        "category": "tea",
+        "name": "Іван Чай з лимоном",
+        "size": "250",
+        "price": "155",
+        "image": "images/ivan-chai.webp",
+        "description": "Іван-чай відомий своїми корисними властивостями ще з часів Київської Русі. Його називали «напоєм сили» за тонізувальний вплив на організм.\n\n Великий вміст дубильних речовин (10—20 %) і вітаміну С (400 мг на 100 г) роблять його імуностимулювальним напоєм з протизапальним впливом. Має легку знеболювальну дію, містить пектин і флавоноїди.\n Не містить кофеїну, щавлевої чи пуринової кислоти, які негативно впливають на обмін речовин. Серед мікроелементів Іван-чай містить велику кількість заліза, міді та марганцю."
     }
 
 ]

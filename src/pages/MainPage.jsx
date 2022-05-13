@@ -145,11 +145,14 @@ const MainPage = ({
 
   // Change page
   const paginate = pageNumber => setCurPage(pageNumber);
-  // Set page to default when change category
+  // Set to first page when change category
   useEffect(() => {
     setCurPage(1);
   }, [filteredGoods]);
-
+  // Scroll to top when change page
+  useEffect(() => {
+    window.scrollTo(0,0)
+  },[curPage])
 
 
   // Wish list has items indicator
@@ -159,45 +162,45 @@ const MainPage = ({
   return (
     <div className='MainPage' style={{position: "relative"}}>
 
-            <TopWrapper>
-              <TopContainer>
+      <TopWrapper>
+        <TopContainer>
 
-                {/*----- Category Select ---------*/}  
-                <CategorySelect 
-                  options={categories}
-                  onChange={e => setSelectedCategory(e.value)}
-                  defaultValue={categories[0]}
-                  value={categories[categories.findIndex(el => el.value == selectedCategory)]}
-                  isSearchable={false}
-                />
+          {/*----- Category Select ---------*/}  
+          <CategorySelect 
+            options={categories}
+            onChange={e => setSelectedCategory(e.value)}
+            defaultValue={categories[0]}
+            value={categories[categories.findIndex(el => el.value == selectedCategory)]}
+            isSearchable={false}
+          />
 
-                {/*------- Wishlist Link ---------*/}
-                <Link to={'wishlist'}>
-                  <WishLink>
-                    <HeartIcon />
-                    {wishlistHasItems() &&
-                      <FavIndicator/>
-                    }  
-                    <span>Обране</span>
-                  </WishLink>
-                </Link>
+          {/*------- Wishlist Link ---------*/}
+          <Link to={'wishlist'}>
+            <WishLink>
+              <HeartIcon />
+              {wishlistHasItems() &&
+                <FavIndicator/>
+              }  
+              <span>Обране</span>
+            </WishLink>
+          </Link>
 
-              </TopContainer>
-            </TopWrapper>
+        </TopContainer>
+      </TopWrapper>
 
-
-      <Wrapper>
-
-        <Header background={background}>
-          <DarkCover/>
-          <HeaderTitle>
-            <TitleNumber>100%</TitleNumber>
-            <TitleText>натуральні продукти <br/> на основі трав</TitleText>
-          </HeaderTitle>
-        </Header>
-
-      </Wrapper>
-
+      {/* --------- Header display only on first page ----- */}
+      { curPage <= 1 &&
+        <Wrapper>
+         <Header background={background}>
+           <DarkCover/>
+           <HeaderTitle>
+             <TitleNumber>100%</TitleNumber>
+             <TitleText>натуральні продукти <br/> на основі трав</TitleText>
+           </HeaderTitle>
+         </Header>
+       </Wrapper>
+      }
+     
 
       {/* 
       ----------  Goods list ----------------
