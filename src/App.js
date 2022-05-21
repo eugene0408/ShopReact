@@ -1,9 +1,6 @@
 import { useState, useEffect } from "react";
-import styled from 'styled-components';
 // Router
 import { Routes, Route, Navigate, useParams } from "react-router-dom";
-// Grid
-import { Col, Container, Row } from "react-grid-system";
 // Components
 import Layout from "./components/Layout";
 // Pages
@@ -39,7 +36,12 @@ const App =({
       // Replace default values
       localData.forEach(localEl => {
         let index = list.findIndex(listEl => localEl.articul === listEl.articul);
-        list[index] = localEl
+        list[index] = {
+          ...list[index],
+          inCart: localEl.inCart,
+          inWishlist: localEl.inWishlist,
+          amount: localEl.amount
+        }
       });
 
       return list
@@ -65,7 +67,7 @@ const App =({
 
   // Filter goods by selected category
   const goodsFilter = () => {
-    if(selectedCategory == 'all'){
+    if(selectedCategory === 'all'){
       setFilteredGoods([...goods])
     }else{
       setFilteredGoods(goods.filter(el => el.category === selectedCategory))
@@ -88,9 +90,30 @@ const App =({
 
   // Theme
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const [theme, setTheme] = useState(defaultDark ? "dark": "light");
 
-  // Routes
+  const setDefaultTheme = () => {
+    if(localStorage.getItem('local-theme') === null){
+      if(defaultDark){
+        return 'dark'
+      }else{
+        return 'light'
+      }
+    }else{
+      return JSON.parse(localStorage.getItem('local-theme'))
+    }
+  }
+
+  const saveThemeToLocal = () => {
+    localStorage.setItem('local-theme', JSON.stringify(theme))
+  }
+
+  const [theme, setTheme] = useState(setDefaultTheme());
+
+  useEffect(() => {
+    saveThemeToLocal();
+  }, [theme])
+
+  // Variable Routes 
   const {id} = useParams();
 
   return (
@@ -147,8 +170,6 @@ const App =({
 
           <Route path='*' element={<Navigate to="/" replace/>} 
           />
-
-          
 
         </Route>
       </Routes>
