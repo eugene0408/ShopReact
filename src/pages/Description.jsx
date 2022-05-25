@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Container, Row, Col } from 'react-grid-system'
+import { motion } from 'framer-motion'
 // Router
 import { useParams } from 'react-router-dom'
 // Components
@@ -82,7 +83,12 @@ const Description = ({
   const curGood = goods[curIndex];
 
   return (
-    <Wrapper>
+    <Wrapper
+      as={motion.div}
+      initial={{width: 0}}
+      animate={{width: "100%"}}
+      exit={{x: window.innerWidth, transition: {duration: 0.1}}}
+    >
       <Container>
         <Row justify='center'>
           <Col md={6}>

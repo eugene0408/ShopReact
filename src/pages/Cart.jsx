@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import { Col, Row, Container } from 'react-grid-system';
-import styled  from 'styled-components'
+import styled  from 'styled-components';
+import { motion } from 'framer-motion';
 // Components
-import CoodInCart from '../components/Card/GoodInCart';
 import IsEmpty from '../components/IsEmpty';
 import Hrn from '../components/Card/Hrn';
 import GoodInCart from '../components/Card/GoodInCart';
@@ -33,7 +33,12 @@ const Cart = ({
   calculateTotal()
 
   return (
-    <div className='Cart' style={{ minHeight: "75vh" }} >
+    <motion.div  
+      style={{ minHeight: "75vh" }} 
+      initial={{width: 0}}
+      animate={{width: "100%"}}
+      exit={{x: window.innerWidth, transition: {duration: 0.1}}}
+    >
 
       {goodsInCart.length === 0 && <IsEmpty text={'Кошик порожній'}/>}
 
@@ -107,7 +112,7 @@ const Cart = ({
       
       }
 
-    </div>
+    </motion.div>
   )
 }
 

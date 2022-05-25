@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 // Router
-import { Routes, Route, Navigate, useParams } from "react-router-dom";
+import { Routes, Route, Navigate, useParams, useLocation } from "react-router-dom";
+// Animations
+import { AnimatePresence } from "framer-motion";
 // Components
 import Layout from "./components/Layout";
 // Pages
@@ -115,65 +117,68 @@ const App =({
 
   // Variable Routes 
   const {id} = useParams();
+  // Router Location
+  const location = useLocation();
 
   return (
     <div className="App" data-theme={theme}>
  
-      <Routes>
-        <Route 
-          path="/" 
-          element={<Layout 
-            goodsInCart={goodsInCart}
-            theme={theme}
-            setTheme={setTheme}
-            />}
-        >
-
-          <Route index 
-            element={<MainPage 
-              filteredGoods={filteredGoods}
-              goods={goods}
-              setGoods={setGoods}
-              addToList={addToList}
-              categories={categories}
-              selectedCategory={selectedCategory}
-              setSelectedCategory={setSelectedCategory}     
-              wishList={wishList}        
-            />} 
-          />
-        
-          <Route path="/wishlist" 
-            element={<WishList
-              wishList={wishList}
-              addToList={addToList}
-            />} 
-          />
-
-          <Route path="/cart" 
-            element={<Cart 
-              goods={goods}
-              setGoods={setGoods}
+      <AnimatePresence>
+        <Routes location={location} key={location.pathname}>
+          <Route 
+            path="/" 
+            element={<Layout 
               goodsInCart={goodsInCart}
-            />} 
-          />
+              theme={theme}
+              setTheme={setTheme}
+              />}
+          >
 
-          {/* Good description page */}
-          <Route path='/:id' 
-            element={<Description
-              goods={goods}
-              setGoods={setGoods}
-              addToList={addToList}
-            />}
-          />
-          <Route path='/wishlist/:id' element={<Navigate to={`/${id}`} replace/>}
-          />
+            <Route index 
+              element={<MainPage 
+                filteredGoods={filteredGoods}
+                goods={goods}
+                setGoods={setGoods}
+                addToList={addToList}
+                categories={categories}
+                selectedCategory={selectedCategory}
+                setSelectedCategory={setSelectedCategory}     
+                wishList={wishList}        
+              />} 
+            />
+          
+            <Route path="/wishlist" 
+              element={<WishList
+                wishList={wishList}
+                addToList={addToList}
+              />} 
+            />
 
-          <Route path='*' element={<Navigate to="/" replace/>} 
-          />
+            <Route path="/cart" 
+              element={<Cart 
+                goods={goods}
+                setGoods={setGoods}
+                goodsInCart={goodsInCart}
+              />} 
+            />
 
-        </Route>
-      </Routes>
+            {/* Good description page */}
+            <Route path='/:id' 
+              element={<Description
+                goods={goods}
+                setGoods={setGoods}
+                addToList={addToList}
+              />}
+            />
+            <Route path='/wishlist/:id' element={<Navigate to={`/${id}`} replace/>}
+            />
 
+            <Route path='*' element={<Navigate to="/" replace/>} 
+            />
+
+          </Route>
+        </Routes>
+      </AnimatePresence>
     </div>
   );
 }

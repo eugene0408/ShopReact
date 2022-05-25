@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import styled from "styled-components"
+import styled from "styled-components";
+import { motion } from "framer-motion";
 // Router
 import { Link } from "react-router-dom";
 // Grid
@@ -160,7 +161,12 @@ const MainPage = ({
   wishlistHasItems();
 
   return (
-    <div className='MainPage' style={{position: "relative"}}>
+    <motion.div 
+      style={{position: "relative"}}
+      initial={{width: 0}}
+      animate={{width: "100%"}}
+      exit={{x: window.innerWidth, transition: {duration: 0.1}}}
+     >
 
       <TopWrapper>
         <TopContainer>
@@ -256,7 +262,7 @@ const MainPage = ({
 
       </CatalogWrapper>
 
-    </div>
+    </motion.div>
   )
 }
 
