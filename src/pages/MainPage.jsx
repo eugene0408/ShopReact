@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { motion } from "framer-motion";
 // Router
 import { Link } from "react-router-dom";
 // Grid
@@ -152,12 +151,7 @@ const MainPage = ({
   wishlistHasItems();
 
   return (
-    <motion.div 
-      style={{position: "relative"}}
-      initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      exit={{opacity: 0, transition: {duration: 0.2}}}
-     >
+    <div style={{position: "relative"}}>
 
       <TopWrapper>
         <TopContainer>
@@ -250,10 +244,9 @@ const MainPage = ({
            />
         </Container>
 
-
       </CatalogWrapper>
 
-    </motion.div>
+    </div>
   )
 }
 

@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 // Grid
 import { Col, Container, Row } from "react-grid-system";
 // Components
@@ -13,15 +12,12 @@ const WishList = ({
 }) => {
 
   return (
-    <motion.div 
+    <div 
       style={{
         marginTop: "3rem", 
         width: "100%", 
         minHeight: "75vh"
       }}
-      initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      exit={{opacity: 0, transition: {duration: 0.2}}}
     >
 
       {wishList.length === 0 && <IsEmpty text={'Список порожній'} />}
@@ -61,7 +57,7 @@ const WishList = ({
                 ))}
         </Row>
       </Container>
-    </motion.div>
+    </div>
   )
 }
 
