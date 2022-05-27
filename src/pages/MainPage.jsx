@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 // Router
@@ -133,10 +132,11 @@ const MainPage = ({
   selectedCategory,
   setSelectedCategory,
   wishList,
+  curPage,
+  setCurPage
 }) => {
 
   // Pagination
-  const [curPage, setCurPage] = useState(1);
   const cardsPerPage = 12;
 
   // Get current cards
@@ -146,15 +146,6 @@ const MainPage = ({
 
   // Change page
   const paginate = pageNumber => setCurPage(pageNumber);
-  // Set to first page when change category
-  useEffect(() => {
-    setCurPage(1);
-  }, [filteredGoods]);
-  // Scroll to top when change page
-  useEffect(() => {
-    window.scrollTo(0,0)
-  },[curPage])
-
 
   // Wish list has items indicator
   const wishlistHasItems = () => wishList.length >= 1 ? true : false;
@@ -163,9 +154,9 @@ const MainPage = ({
   return (
     <motion.div 
       style={{position: "relative"}}
-      initial={{width: 0}}
-      animate={{width: "100%"}}
-      exit={{x: window.innerWidth, transition: {duration: 0.1}}}
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0, transition: {duration: 0.2}}}
      >
 
       <TopWrapper>

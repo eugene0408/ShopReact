@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import {createRoot} from 'react-dom/client'
 import { HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import ScrollToTop from './components/ScrollToTop';
+
 
 const root = createRoot(document.getElementById('root'))
 
@@ -11,8 +12,8 @@ const root = createRoot(document.getElementById('root'))
 const getDataAndRender = async () => {
   let goodsData = await fetch('data/goods.json');
   let goods = await goodsData.json(); 
-  let categoriesData = await fetch('data/categories.json')
-  let categories = await categoriesData.json()
+  let categoriesData = await fetch('data/categories.json');
+  let categories = await categoriesData.json();
 
   return(
     root.render(

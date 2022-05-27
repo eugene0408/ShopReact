@@ -54,6 +54,7 @@ const App =({
   const [goods, setGoods] = useState(goodsListAttr);
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [filteredGoods, setFilteredGoods] = useState([]);
+  const [curPage, setCurPage] = useState(1);
 
   const goodsInCart = goods.filter(good => good.inCart === true);
   const wishList = goods.filter(good => good.inWishlist === true);
@@ -84,8 +85,13 @@ const App =({
   // Effect
   useEffect(()=>{
     goodsFilter();
+    setCurPage(1);
   },[selectedCategory]);
-
+  // Scroll page to top when change page number
+  useEffect(() => {
+    window.scrollTo(0,0)
+  },[curPage])
+  // Save goods state to local
   useEffect(() => {
     saveToLocal();
   }, [goods])
@@ -143,7 +149,9 @@ const App =({
                 categories={categories}
                 selectedCategory={selectedCategory}
                 setSelectedCategory={setSelectedCategory}     
-                wishList={wishList}        
+                wishList={wishList} 
+                curPage={curPage}  
+                setCurPage={setCurPage}     
               />} 
             />
           
